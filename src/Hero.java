@@ -159,10 +159,10 @@ public abstract class Hero {
         }
 
         if(this.equippedArmor!= null) {
-            this.hp = this.hp - (i * (1- ((equippedArmor.damageReduc + this.defense) / 3000)));
+            this.hp = this.hp - ((i/100) * (1- ((equippedArmor.damageReduc + this.defense) / 3000)));
         }
         else{
-            this.hp = this.hp - i *(1- (this.defense/3000));
+            this.hp = this.hp - ((i/100) *(1- (this.defense/3000)));
         }
     }
 
