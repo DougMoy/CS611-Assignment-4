@@ -15,12 +15,12 @@ public class MonsterGenerator {
 
     //generates monsters from the 3 files of monsters we are given
     public MonsterGenerator(){
-        numRowsDragon = ReadInFile.countRows("src/Dragons.txt") -1;
-        numRowsExo = ReadInFile.countRows("src/Exoskeletons.txt")-1;
-        numRowsSpirit = ReadInFile.countRows("src/spirits.txt")-1;
-        dragonsArray = ReadInFile.readInText("src/Dragons.txt");
-        exoArray = ReadInFile.readInText("src/Exoskeletons.txt");
-        spiritArray = ReadInFile.readInText("src/spirits.txt");
+        numRowsDragon = ReadInFile.countRows("rsc/Dragons.txt") -1;
+        numRowsExo = ReadInFile.countRows("rsc/Exoskeletons.txt")-1;
+        numRowsSpirit = ReadInFile.countRows("rsc/spirits.txt")-1;
+        dragonsArray = ReadInFile.readInText("rsc/Dragons.txt");
+        exoArray = ReadInFile.readInText("rsc/Exoskeletons.txt");
+        spiritArray = ReadInFile.readInText("rsc/spirits.txt");
         numRows = numRowsDragon + numRowsExo + numRowsSpirit;
        monsterArray = new String [numRows][5];
 
