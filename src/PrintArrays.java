@@ -1,4 +1,4 @@
-public class printArrays {
+public class PrintArrays {
     //prints and formats 2d string arrays
 
     public static int longestWord(String [][] inputArray){

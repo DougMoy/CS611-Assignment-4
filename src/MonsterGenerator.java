@@ -1,6 +1,6 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-public class monsterGenerator {
+public class MonsterGenerator {
     public static int numRowsDragon;
     public static int numRowsExo;
     public static int numRowsSpirit;
@@ -14,13 +14,13 @@ public class monsterGenerator {
     public static String[][]monsterArray;
 
     //generates monsters from the 3 files of monsters we are given
-    public monsterGenerator(){
-        numRowsDragon =readInFile.countRows("src/Dragons.txt") -1;
-        numRowsExo = readInFile.countRows("src/Exoskeletons.txt")-1;
-        numRowsSpirit = readInFile.countRows("src/spirits.txt")-1;
-        dragonsArray = readInFile.readInText("src/Dragons.txt");
-        exoArray = readInFile.readInText("src/Exoskeletons.txt");
-        spiritArray = readInFile.readInText("src/spirits.txt");
+    public MonsterGenerator(){
+        numRowsDragon = ReadInFile.countRows("src/Dragons.txt") -1;
+        numRowsExo = ReadInFile.countRows("src/Exoskeletons.txt")-1;
+        numRowsSpirit = ReadInFile.countRows("src/spirits.txt")-1;
+        dragonsArray = ReadInFile.readInText("src/Dragons.txt");
+        exoArray = ReadInFile.readInText("src/Exoskeletons.txt");
+        spiritArray = ReadInFile.readInText("src/spirits.txt");
         numRows = numRowsDragon + numRowsExo + numRowsSpirit;
        monsterArray = new String [numRows][5];
 
@@ -46,7 +46,7 @@ public class monsterGenerator {
 
     public static void printMonsters(){
         //testing function
-        printArrays.printArray(monsterArray, "\u001B[37m", 0);
+        PrintArrays.printArray(monsterArray, "\u001B[37m", 0);
     }
     //filters monsters based on level
     public static String [][] filterMonstersLevel(int level){
@@ -68,10 +68,10 @@ public class monsterGenerator {
     }
 
     //takes String [][] and actually makes an arrayList of monsters
-    public static ArrayList<monster> generateMonster (String [][] inputArray){
-        ArrayList<monster> returnArray =  new ArrayList<monster>();
+    public static ArrayList<Monster> generateMonster (String [][] inputArray){
+        ArrayList<Monster> returnArray =  new ArrayList<Monster>();
         for (int i = 0; i < inputArray.length; i++ ){
-            returnArray.add( new monster(inputArray[i][0], Integer.valueOf(inputArray[i][1]), Integer.valueOf(inputArray[i][2]), Integer.valueOf(inputArray[i][3]),Integer.valueOf(inputArray[i][4])));
+            returnArray.add( new Monster(inputArray[i][0], Integer.valueOf(inputArray[i][1]), Integer.valueOf(inputArray[i][2]), Integer.valueOf(inputArray[i][3]),Integer.valueOf(inputArray[i][4])));
         }
         return returnArray;
     }

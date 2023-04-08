@@ -1,11 +1,11 @@
-public class potion extends item{
+public class Potion extends Item {
 
     String attribute;
     int increase;
 
 
 
-    public potion (String name, int level, int price, int increase, String attribute){
+    public Potion(String name, int level, int price, int increase, String attribute){
         super(name,level,price);
         this.increase = increase;
         this.attribute = attribute;
@@ -14,7 +14,7 @@ public class potion extends item{
     }
 
     //use Item simulates using the potion on the current hero
-    public void useItem(hero currentHero){
+    public void useItem(Hero currentHero){
         if(this.attribute.equals("Health")){
             currentHero.increaseHp(this.increase);
         }

@@ -1,19 +1,19 @@
 import java.util.ArrayList;
 
-public class fightInteraction{
-    private hero[] currentHeroes;
-    private static ArrayList<monster> monsters;
-    private static monster[] arrayMonsters;
+public class FightInteraction {
+    private Hero[] currentHeroes;
+    private static ArrayList<Monster> monsters;
+    private static Monster[] arrayMonsters;
 
-    private static hero publicHero;
+    private static Hero publicHero;
 
     private int numberMonstersInit;
     private int monsterLevel;
     //fight interaction takes in the heroes that are fighting and pits them against the monsters.
-    public fightInteraction(hero[]currentHeroes, ArrayList<monster>  monsters){
+    public FightInteraction(Hero[]currentHeroes, ArrayList<Monster>  monsters){
         this.currentHeroes= currentHeroes;
         this.monsters = monsters;
-        this.arrayMonsters = new monster[monsters.size()];
+        this.arrayMonsters = new Monster[monsters.size()];
         this.updateArrayMonsters();
         this.publicHero = currentHeroes[0];
         this.numberMonstersInit = monsters.size();
@@ -54,10 +54,10 @@ public class fightInteraction{
             publicHero = currentHeroes[i];
             currentHeroes[i].printHero(Colors.heroColors[i]);
             System.out.println("Would you like to basic attack or use something from your inventory? A for attack, I for inventory" );
-            String attackOrIn = input.getLetter();
+            String attackOrIn = Input.getLetter();
             while (!attackOrIn.equals("A") && !attackOrIn.equals("I")){
                 System.out.println("Sorry invalid input, please try again");
-                attackOrIn = input.getLetter();
+                attackOrIn = Input.getLetter();
             }
             if (attackOrIn.equals("A")){
                 basicAttack(currentHeroes[i]);
@@ -65,10 +65,10 @@ public class fightInteraction{
             else if (attackOrIn.equals("I")){
                 currentHeroes[i].printItems(Colors.heroColors[i]);
                 System.out.println("Which item would you like to use?");
-                int userInput = input.getInt();
+                int userInput = Input.getInt();
                 while(userInput < 0 || userInput >= currentHeroes[i].items.size()){
                     System.out.println("Please enter a valid input");
-                    userInput = input.getInt();
+                    userInput = Input.getInt();
                 }
                 currentHeroes[i].getItem(userInput).useItem(currentHeroes[i]);
 
@@ -160,17 +160,17 @@ public class fightInteraction{
             printArray[i+1] = monsters.get(i).getMonsterDescription();
         }
 
-        printArrays.printArray(printArray, Colors.ANSI_RESET, 0);
+        PrintArrays.printArray(printArray, Colors.ANSI_RESET, 0);
     }
 
     //applies spell to a monster
-    public static void applySpell(spell spellUse){
+    public static void applySpell(Spell spellUse){
         System.out.println("Who do you want to apply this spell to?");
         printMonsters();
-        int userInput = input.getInt();
+        int userInput = Input.getInt();
         while(userInput < 0 || userInput >= monsters.size()){
             System.out.println("Please enter a valid input");
-            userInput = input.getInt();
+            userInput = Input.getInt();
         }
         spellUse.spellEffect(monsters.get(userInput));
         monsters.get(userInput).takeGuarenteedDamage(spellUse.damageValue + (spellUse.damageValue * (publicHero.dexterity/10000)));
@@ -189,13 +189,13 @@ public class fightInteraction{
         }
     }
     //basic attack that the hero can use on any monster
-    public void basicAttack(hero currentHero){
+    public void basicAttack(Hero currentHero){
         System.out.println("Who do you want to attack?");
         printMonsters();
-        int userInput = input.getInt();
+        int userInput = Input.getInt();
         while(userInput < 0 || userInput >= monsters.size()){
             System.out.println("Please enter a valid input");
-            userInput = input.getInt();
+            userInput = Input.getInt();
         }
         monsters.get(userInput).takeDamage(currentHero.calcDamage());
 

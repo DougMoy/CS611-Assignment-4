@@ -1,8 +1,8 @@
-public class weapon extends item {
+public class Weapon extends Item {
     private int damage;
     private int hands;
 
-    public weapon (String name, int level, int price, int damage, int hands){
+    public Weapon(String name, int level, int price, int damage, int hands){
         super(name,level,price);
         this.damage = damage;
         this.hands = hands;
@@ -19,7 +19,7 @@ public class weapon extends item {
         return this.hands;
     }
 
-    public void useItem(hero currentHero)
+    public void useItem(Hero currentHero)
     {
         if(currentHero.setEquippedWeapons(this)){
             System.out.println("Successfully equipped item");

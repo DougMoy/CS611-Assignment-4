@@ -1,11 +1,11 @@
 import java.util.Scanner;
 import java.util.ArrayList;
-public class input {
+public class Input {
 
     static Scanner ogInput = new Scanner(System.in);
     //select hero function
 
-    public static int selectHero(hero[] heroes){
+    public static int selectHero(Hero[] heroes){
         for (int i = 0; i <heroes.length; i++){
             System.out.println(Colors.heroColors[i]);
             System.out.println("[" + i + "]" + " " + heroes[i].getName());
@@ -87,42 +87,42 @@ public class input {
         }
         return returnInt;
     }
-   public static hero getHero() {
+   public static Hero getHero() {
        int count = 0;
        int count1;
        int count2;
        int count3;
        String[] heroArray;
-       hero returnHero;
+       Hero returnHero;
        System.out.println("Which hero would you like to pick?");
        System.out.println("Here are the paladins:");
-       printArrays.printArray(readInFile.readInText("src/paladins.txt"), Colors.ANSI_GREEN, count);
-       count1 = (int) readInFile.countRows("src/paladins.txt") + count - 1;
+       PrintArrays.printArray(ReadInFile.readInText("src/paladins.txt"), Colors.ANSI_GREEN, count);
+       count1 = (int) ReadInFile.countRows("src/paladins.txt") + count - 1;
        System.out.println("Here are the warriors:");
-       printArrays.printArray(readInFile.readInText("src/warriors.txt"), Colors.ANSI_RED, count1);
-       count2 = (int) readInFile.countRows("src/warriors.txt") + count1 - 1;
+       PrintArrays.printArray(ReadInFile.readInText("src/warriors.txt"), Colors.ANSI_RED, count1);
+       count2 = (int) ReadInFile.countRows("src/warriors.txt") + count1 - 1;
        System.out.println("Here are the sorcerers:");
-       count3 = (int) readInFile.countRows("src/sorcerers.txt");
-       printArrays.printArray(readInFile.readInText("src/sorcerers.txt"),Colors.ANSI_BLUE, count2);
+       count3 = (int) ReadInFile.countRows("src/sorcerers.txt");
+       PrintArrays.printArray(ReadInFile.readInText("src/sorcerers.txt"),Colors.ANSI_BLUE, count2);
        System.out.println("Enter a number to select the corresponding hero:");
        int index = getInt();
        while (index <0 || index > count2 + count3 -2){
            System.out.println("Please enter a valid input ");
            index = getInt();
        }
-       ArrayList<item> emptyInv = new ArrayList<item>();
+       ArrayList<Item> emptyInv = new ArrayList<Item>();
        if (index < count1) {
-           heroArray = (readInFile.readInText("src/paladins.txt"))[index + 1];
+           heroArray = (ReadInFile.readInText("src/paladins.txt"))[index + 1];
 
-           returnHero = new paladin(heroArray[0], 1, Integer.parseInt(heroArray[6]) , 100, Integer.parseInt( heroArray[1]), Integer.parseInt(heroArray[2]), Integer.parseInt(heroArray[4]), Integer.parseInt(heroArray[3]), 0, emptyInv);
+           returnHero = new Paladin(heroArray[0], 1, Integer.parseInt(heroArray[6]) , 100, Integer.parseInt( heroArray[1]), Integer.parseInt(heroArray[2]), Integer.parseInt(heroArray[4]), Integer.parseInt(heroArray[3]), 0, emptyInv);
        } else if (index >= count1 && index < count2) {
-           heroArray = (readInFile.readInText("src/warriors.txt"))[index - count1 + 1];
+           heroArray = (ReadInFile.readInText("src/warriors.txt"))[index - count1 + 1];
 
-           returnHero = new warrior(heroArray[0], 1, Integer.parseInt(heroArray[6]) , 100, Integer.parseInt( heroArray[1]), Integer.parseInt(heroArray[2]), Integer.parseInt(heroArray[4]), Integer.parseInt(heroArray[3]), 0, emptyInv);
+           returnHero = new Warrior(heroArray[0], 1, Integer.parseInt(heroArray[6]) , 100, Integer.parseInt( heroArray[1]), Integer.parseInt(heroArray[2]), Integer.parseInt(heroArray[4]), Integer.parseInt(heroArray[3]), 0, emptyInv);
        } else {
-           heroArray = (readInFile.readInText("src/sorcerers.txt"))[index - count2 + 1];
+           heroArray = (ReadInFile.readInText("src/sorcerers.txt"))[index - count2 + 1];
 
-           returnHero = new sorcerer(heroArray[0], 1, Integer.parseInt(heroArray[6]) , 100, Integer.parseInt( heroArray[1]), Integer.parseInt(heroArray[2]), Integer.parseInt(heroArray[4]), Integer.parseInt(heroArray[3]), 0, emptyInv);
+           returnHero = new Sorcerer(heroArray[0], 1, Integer.parseInt(heroArray[6]) , 100, Integer.parseInt( heroArray[1]), Integer.parseInt(heroArray[2]), Integer.parseInt(heroArray[4]), Integer.parseInt(heroArray[3]), 0, emptyInv);
        }
 
        return returnHero;
@@ -131,14 +131,14 @@ public class input {
 
    }
 
-   public static hero[] getHeroes(){
+   public static Hero[] getHeroes(){
         System.out.println("How many heroes do you want to play on your team? Maximum: 4");
         int numberHeroes = getInt();
         while(numberHeroes > 4){
             System.out.println("Please enter a valid input that is less than 4");
             numberHeroes = getInt();
         }
-        hero[] heroes = new hero [numberHeroes];
+        Hero[] heroes = new Hero[numberHeroes];
         int count = 0;
         for (int i = 0; i <numberHeroes; i++){
             heroes[i] = getHero();

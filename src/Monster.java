@@ -1,4 +1,4 @@
-public class monster {
+public class Monster {
 
     protected String name;
     protected int level;
@@ -9,7 +9,7 @@ public class monster {
     protected String[] monsterDescription;
     protected String[] monsterLabel;
     //init monster
-    public monster (String name, int level, int damage, int defense, int dodgeChance){
+    public Monster(String name, int level, int damage, int defense, int dodgeChance){
         this.name = name;
         this.level = level;
         this.damage = damage;

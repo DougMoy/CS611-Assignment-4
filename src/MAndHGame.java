@@ -1,9 +1,9 @@
-public class mAndHGame extends game {
+public class MAndHGame extends Game {
 
 
 
 
-    public mAndHGame(hero [] heroes, monstersAndHeroesBoard gameBoard){
+    public MAndHGame(Hero[] heroes, MonstersAndHeroesBoard gameBoard){
         super(heroes, gameBoard);
     }
     //function that runs the game
@@ -12,7 +12,7 @@ public class mAndHGame extends game {
         int heroesAlive = 1;
         while(!userInput.equals("Q") || !userInput.equals("q") || heroesAlive !=1){
             gameBoard.printBoard();
-            userInput = input.userInputLetter();
+            userInput = Input.userInputLetter();
             if (userInput.equals("W") || userInput.equals("w") || userInput.equals("A") || userInput.equals("a") || userInput.equals("S") || userInput.equals("s") || userInput.equals("D") ||userInput.equals("d")){
                 if(gameBoard.isValidMove(userInput) == false) {
                     System.out.println("Your hero can not move here! Please select a different move");
@@ -52,10 +52,10 @@ public class mAndHGame extends game {
                 }
                 System.out.println(Colors.ANSI_RESET);
                 System.out.println("Enter Q/q to go back to the main menu");
-                String quitVar = input.getLetter();
+                String quitVar = Input.getLetter();
                 while(!quitVar.equals("Q") && !quitVar.equals("q")){
                     System.out.println("Invalid input, Enter Q/q to go back to the main menu");
-                    quitVar = input.getLetter();
+                    quitVar = Input.getLetter();
                 }
             }
 
@@ -65,13 +65,13 @@ public class mAndHGame extends game {
             }
         }
         System.out.println("Would you like to play again? Y/N");
-        String newVar = input.getLetter();
+        String newVar = Input.getLetter();
         while(!newVar.equals("Y") && !newVar.equals("N")){
             System.out.println("Invalid input, Enter Y/N only");
-            newVar = input.getLetter();
+            newVar = Input.getLetter();
         }
         if (newVar.equals("Y")){
-            gameStartMandH.startGame();
+            GameStartMandH.startGame();
         }
         else{
             return;

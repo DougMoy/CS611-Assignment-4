@@ -1,11 +1,11 @@
-public abstract class item {
+public abstract class Item {
     protected String name;
     protected int level;
     protected String [] itemDescription;
     protected String[] itemLabels;
     protected int price;
 
-    public item(String name, int level, int price){
+    public Item(String name, int level, int price){
         this.name = name;
         this.level = level;
         this.price = price;
@@ -25,9 +25,9 @@ public abstract class item {
 
     public void labeledItem (int i, String color){
         String [][] inputArray = new String[][]{this.itemLabels,this.itemDescription};
-        printArrays.printArray(inputArray,color, i);
+        PrintArrays.printArray(inputArray,color, i);
     }
 
-    public abstract void useItem(hero currentHero);
+    public abstract void useItem(Hero currentHero);
 
 }

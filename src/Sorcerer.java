@@ -1,6 +1,6 @@
 import java.util.ArrayList;
-public class sorcerer extends hero{
-    public sorcerer(String name, int level, int xp, int hp, int mana, int strength, int dexterity, int agility, int gold, ArrayList<item> items){
+public class Sorcerer extends Hero {
+    public Sorcerer(String name, int level, int xp, int hp, int mana, int strength, int dexterity, int agility, int gold, ArrayList<Item> items){
         super(name, level, xp,hp,mana,strength,dexterity,agility, gold, items);
     }
 

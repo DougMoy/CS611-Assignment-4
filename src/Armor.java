@@ -1,7 +1,7 @@
-public class armor extends item{
+public class Armor extends Item {
     //class represents armor item, extends item because armor is an item
     int damageReduc;
-    public armor(String name, int level, int price,int damageReduc){
+    public Armor(String name, int level, int price, int damageReduc){
         super(name, level,price);
         this.damageReduc = damageReduc;
         this.itemDescription = new String[]{name, String.valueOf(price), String.valueOf(level), String.valueOf(damageReduc)};
@@ -10,7 +10,7 @@ public class armor extends item{
     }
     //the class' useItem function equips the armor
 
-    public void useItem(hero currentHero){
+    public void useItem(Hero currentHero){
         if(currentHero.setEquipArmor(this)){
             System.out.println("Successfully equipped");
             currentHero.removeItem(this);

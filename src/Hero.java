@@ -1,7 +1,7 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public abstract class hero {
+public abstract class Hero {
     protected String name;
     protected int level;
     protected int xp;
@@ -13,18 +13,18 @@ public abstract class hero {
     protected int dexterity;
     protected int agility;
     protected int gold;
-    protected ArrayList<item> items;
+    protected ArrayList<Item> items;
 
     protected int numHands;
-    protected armor equippedArmor;
+    protected Armor equippedArmor;
 
-    protected ArrayList<weapon> equippedWeapons;
+    protected ArrayList<Weapon> equippedWeapons;
     protected int itemCount;
     protected boolean fainted;
 
     protected int defense;
 
-    public hero (String name, int level, int xp, int hp, int mana, int strength, int dexterity, int agility, int gold, ArrayList<item> items){
+    public Hero(String name, int level, int xp, int hp, int mana, int strength, int dexterity, int agility, int gold, ArrayList<Item> items){
         this.name = name;
         this.level = level;
         this.xp = xp;
@@ -60,7 +60,7 @@ public abstract class hero {
     public int getGold(){return this.gold;}
 
     //adds item to inventory
-    public void addItem(item itemToAdd){
+    public void addItem(Item itemToAdd){
         this.items.add(itemToAdd);
         this.gold = this.gold - itemToAdd.getPrice();
     }
@@ -86,7 +86,7 @@ public abstract class hero {
         items.remove(i);
     }
 
-    public void removeItem(item i){
+    public void removeItem(Item i){
         items.remove(i);
     }
     public int getMana(){
@@ -100,7 +100,7 @@ public abstract class hero {
         this.gold = this.gold + i;
     }
 
-    public item getItem (int i){
+    public Item getItem (int i){
         return items.get(i);
     }
 
@@ -110,7 +110,7 @@ public abstract class hero {
     public void increaseMpAfterFight(){
         this.mana = this.mana + (this.mana/10);
     }
-    public boolean setEquipArmor(armor equipArmor){
+    public boolean setEquipArmor(Armor equipArmor){
         if (this.equippedArmor != null) {
             this.equippedArmor = equipArmor;
             return true;
@@ -168,7 +168,7 @@ public abstract class hero {
 
 
 
-    public boolean setEquippedWeapons(weapon weaponTo){
+    public boolean setEquippedWeapons(Weapon weaponTo){
         if(this.numHands >= weaponTo.getHands()) {
             this.equippedWeapons.add(weaponTo);
             this.numHands = this.numHands-weaponTo.getHands();

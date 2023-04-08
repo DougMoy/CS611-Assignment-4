@@ -1,6 +1,6 @@
-public class monstersAndHeroesBoard extends Board{
+public class MonstersAndHeroesBoard extends Board{
     //generates monstersAndHeroes board
-    public monstersAndHeroesBoard(int rows, int cols){
+    public MonstersAndHeroesBoard(int rows, int cols){
         super(rows, cols);
         int count = 0;
 
@@ -13,7 +13,7 @@ public class monstersAndHeroesBoard extends Board{
 
                 double prob = Math.random();
                 if(i == 0 && j ==0){
-                    this.actualBoard[i][j] = new commonSpace(count);
+                    this.actualBoard[i][j] = new CommonSpace(count);
                     this.actualBoard[i][j].playerOn();
 
                 }
@@ -24,7 +24,7 @@ public class monstersAndHeroesBoard extends Board{
                     this.actualBoard[i][j] = new MarketTile(count);
                 }
                 else{
-                    this.actualBoard[i][j] = new commonSpace(count);
+                    this.actualBoard[i][j] = new CommonSpace(count);
                 }
 
                 count = count + 1;

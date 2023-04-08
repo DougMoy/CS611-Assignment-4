@@ -49,10 +49,10 @@ public abstract class Tile {
         public void printContents(){}
 
 
-        public ArrayList<item> getContents()
+        public ArrayList<Item> getContents()
 
         {
-            ArrayList<item> empty = new ArrayList<>();
+            ArrayList<Item> empty = new ArrayList<>();
             return empty;
         }
 

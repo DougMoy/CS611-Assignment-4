@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 
 public class MarketTile extends Tile{
-    public ArrayList<item> itemsAvail;
+    public ArrayList<Item> itemsAvail;
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLACK = "\u001B[30m";
     public static final String ANSI_RED = "\u001B[31m";
@@ -25,27 +25,27 @@ public class MarketTile extends Tile{
         this.marker = "M";
         Random random = new Random();
         String [] itemArray;
-        itemsAvail = new ArrayList<item>();
+        itemsAvail = new ArrayList<Item>();
 
         for(int i = 0; i<6; i++) {
 
-            itemArray = generateRandom.generateRandom((readInFile.readInText(txtFilesItems[i])), readInFile.countRows(txtFilesItems[i]));
+            itemArray = GenerateRandom.generateRandom((ReadInFile.readInText(txtFilesItems[i])), ReadInFile.countRows(txtFilesItems[i]));
 
             if (i == 0){
 
 
-                itemsAvail.add( new armor(itemArray[0], Integer.parseInt(itemArray[2]), Integer.parseInt(itemArray[1]), Integer.parseInt(itemArray[3])));
+                itemsAvail.add( new Armor(itemArray[0], Integer.parseInt(itemArray[2]), Integer.parseInt(itemArray[1]), Integer.parseInt(itemArray[3])));
             }else if(i==1){
 
 
-                itemsAvail.add(new fireSpell (itemArray[0], Integer.parseInt(itemArray[2]), Integer.parseInt(itemArray[1]),Integer.parseInt(itemArray[3]),Integer.parseInt(itemArray[4])));}
+                itemsAvail.add(new FireSpell(itemArray[0], Integer.parseInt(itemArray[2]), Integer.parseInt(itemArray[1]),Integer.parseInt(itemArray[3]),Integer.parseInt(itemArray[4])));}
             else if (i==2) {
 
-                itemsAvail.add( new potion (itemArray[0], Integer.parseInt(itemArray[2]), Integer.parseInt(itemArray[1]),Integer.parseInt(itemArray[3]), itemArray[4] ));
+                itemsAvail.add( new Potion(itemArray[0], Integer.parseInt(itemArray[2]), Integer.parseInt(itemArray[1]),Integer.parseInt(itemArray[3]), itemArray[4] ));
             }
             else if (i==3) {
 
-                itemsAvail.add(new weapon (itemArray[0], Integer.parseInt(itemArray[2]), Integer.parseInt(itemArray[1]), Integer.parseInt(itemArray[3]), Integer.parseInt(itemArray[4])) );
+                itemsAvail.add(new Weapon(itemArray[0], Integer.parseInt(itemArray[2]), Integer.parseInt(itemArray[1]), Integer.parseInt(itemArray[3]), Integer.parseInt(itemArray[4])) );
             }
             else if (i==4) {
 
@@ -54,7 +54,7 @@ public class MarketTile extends Tile{
             else if (i==5){
 
 
-                itemsAvail.add( new iceSpell(itemArray[0], Integer.parseInt(itemArray[2]), Integer.parseInt(itemArray[1]),Integer.parseInt(itemArray[3]),Integer.parseInt(itemArray[4])));
+                itemsAvail.add( new IceSpell(itemArray[0], Integer.parseInt(itemArray[2]), Integer.parseInt(itemArray[1]),Integer.parseInt(itemArray[3]),Integer.parseInt(itemArray[4])));
 
             }
         }
@@ -66,8 +66,8 @@ public class MarketTile extends Tile{
         System.out.println("Here is what I have:");
         System.out.println("KEY: " + ANSI_GREEN + "Armor " + ANSI_RED + "FireSpells " + ANSI_PURPLE + "Potions " +ANSI_CYAN + "Weapons " + ANSI_YELLOW + "LightningSpells " + ANSI_BLUE + "IceSpells " + ANSI_WHITE + "Items the heroes have sold me" +ANSI_RESET   );
         for (int i = 0; i < 6; i++){
-            String [][] returnArray = new String[][]{readInFile.readInHeader(txtFilesItems[i]),itemsAvail.get(i).getItemDescription()};
-            printArrays.printArray(returnArray,colors[i],i);
+            String [][] returnArray = new String[][]{ReadInFile.readInHeader(txtFilesItems[i]),itemsAvail.get(i).getItemDescription()};
+            PrintArrays.printArray(returnArray,colors[i],i);
         }
         for(int j = 6; j < itemsAvail.size(); j++){
            itemsAvail.get(j).labeledItem(j, Colors.ANSI_WHITE);
@@ -76,7 +76,7 @@ public class MarketTile extends Tile{
         }
     }
     //returns arraylist of items in market
-    public ArrayList<item> getContents(){
+    public ArrayList<Item> getContents(){
         return this.itemsAvail;
     }
 
