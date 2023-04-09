@@ -1,3 +1,12 @@
+/*
+ * Board.java
+ * by Douglas Moy, Mark Yang
+ * CS611 Assignment 4
+ *
+ * This class represents a 2d board that players can move around it.
+ * It consists of a grid of Tile objects with a set number of rows and columns.
+ * The class is responsible for keeping track of the players location and moving the player.
+ */
 public abstract class Board {
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLACK = "\u001B[30m";

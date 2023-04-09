@@ -1,8 +1,4 @@
 public class MAndHGame extends Game {
-
-
-
-
     public MAndHGame(Hero[] heroes, MonstersAndHeroesBoard gameBoard){
         super(heroes, gameBoard);
     }

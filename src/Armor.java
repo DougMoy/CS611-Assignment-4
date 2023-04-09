@@ -1,3 +1,12 @@
+/*
+ * Armor.java
+ * by Douglas Moy, Mark Yang
+ * CS611 Assignment 4
+ *
+ * This class represents equippable armor.
+ * Armor is implemented as a subtype of Item. It has an additional stat: damage reduction.
+ * Heros can equip armor as a type of equipment.
+ */
 public class Armor extends Item {
     //class represents armor item, extends item because armor is an item
     int damageReduc;
