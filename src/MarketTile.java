@@ -10,26 +10,18 @@ import java.util.ArrayList;
  */
 public class MarketTile extends Tile{
     public ArrayList<Item> itemsAvail;
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_BLACK = "\u001B[30m";
-    public static final String ANSI_RED = "\u001B[31m";
-    public static final String ANSI_GREEN = "\u001B[32m";
-    public static final String ANSI_YELLOW = "\u001B[33m";
-    public static final String ANSI_BLUE = "\u001B[34m";
-    public static final String ANSI_PURPLE = "\u001B[35m";
-    public static final String ANSI_CYAN = "\u001B[36m";
-    public static final String ANSI_WHITE = "\u001B[37m";
 
-    String[] colors = new String[]{ANSI_GREEN,ANSI_RED,ANSI_PURPLE,ANSI_CYAN,ANSI_YELLOW,ANSI_BLUE};
+    protected String [] itemArray;
+    protected String[] colors = new String[]{Colors.ANSI_GREEN,Colors.ANSI_RED,Colors.ANSI_PURPLE,Colors.ANSI_CYAN,Colors.ANSI_YELLOW,Colors.ANSI_BLUE};
 
-    String[] txtFilesItems = {"rsc/Armory.txt", "rsc/FireSpells.txt", "rsc/Potions.txt","rsc/Weaponry.txt", "rsc/LightningSpells.txt", "rsc/IceSpells.txt" };
+    public String[] txtFilesItems = {"rsc/Armory.txt", "rsc/FireSpells.txt", "rsc/Potions.txt","rsc/Weaponry.txt", "rsc/LightningSpells.txt", "rsc/IceSpells.txt" };
 
     //constructor initalizes random items for each market tile
     public MarketTile(int index){
         super(index);
         this.marker = "M";
         Random random = new Random();
-        String [] itemArray;
+
         itemsAvail = new ArrayList<Item>();
 
         for(int i = 0; i<6; i++) {
@@ -69,14 +61,14 @@ public class MarketTile extends Tile{
 
 
         System.out.println("Here is what I have:");
-        System.out.println("KEY: " + ANSI_GREEN + "Armor " + ANSI_RED + "FireSpells " + ANSI_PURPLE + "Potions " +ANSI_CYAN + "Weapons " + ANSI_YELLOW + "LightningSpells " + ANSI_BLUE + "IceSpells " + ANSI_WHITE + "Items the heroes have sold me" +ANSI_RESET   );
+        System.out.println("KEY: " + Colors.ANSI_GREEN + "Armor " + Colors.ANSI_RED + "FireSpells " + Colors.ANSI_PURPLE + "Potions " +Colors.ANSI_CYAN + "Weapons " + Colors.ANSI_YELLOW + "LightningSpells " + Colors.ANSI_BLUE + "IceSpells " + Colors.ANSI_WHITE + "Items the heroes have sold me" +Colors.ANSI_RESET   );
         for (int i = 0; i < 6; i++){
             String [][] returnArray = new String[][]{ReadInFile.readInHeader(txtFilesItems[i]),itemsAvail.get(i).getItemDescription()};
             PrintArrays.printArray(returnArray,colors[i],i);
         }
         for(int j = 6; j < itemsAvail.size(); j++){
            itemsAvail.get(j).labeledItem(j, Colors.ANSI_WHITE);
-           System.out.println(ANSI_RESET);
+           System.out.println(Colors.ANSI_RESET);
 
         }
     }
