@@ -1,5 +1,13 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+/*
+ * Input.java
+ * by Douglas Moy, Mark Yang
+ * CS611 Assignment 4
+ *
+ * A class containing terminal input/output utilities.
+ * Responsible for prompting the player for decisions.
+ */
 public class Input {
 
     static Scanner ogInput = new Scanner(System.in);

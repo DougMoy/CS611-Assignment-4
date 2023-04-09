@@ -1,8 +1,13 @@
-import java.util.Arrays;
 import java.util.Random;
 import java.util.ArrayList;
-
-
+/*
+ * MarketTile.java
+ * by Douglas Moy, Mark Yang
+ * CS611 Assignment 4
+ *
+ * The MarketTile object is a subclass extending Tile.
+ * MarketTile allows players on it to buy and sell various items.
+ */
 public class MarketTile extends Tile{
     public ArrayList<Item> itemsAvail;
     public static final String ANSI_RESET = "\u001B[0m";
@@ -49,7 +54,7 @@ public class MarketTile extends Tile{
             }
             else if (i==4) {
 
-                itemsAvail.add( new lightningSpell (itemArray[0], Integer.parseInt(itemArray[2]), Integer.parseInt(itemArray[1]),Integer.parseInt(itemArray[3]),Integer.parseInt(itemArray[4])));
+                itemsAvail.add( new LightningSpell(itemArray[0], Integer.parseInt(itemArray[2]), Integer.parseInt(itemArray[1]),Integer.parseInt(itemArray[3]),Integer.parseInt(itemArray[4])));
             }
             else if (i==5){
 

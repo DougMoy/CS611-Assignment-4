@@ -1,3 +1,12 @@
+/*
+ * Potion.java
+ * by Douglas Moy, Mark Yang
+ * CS611 Assignment 4
+ *
+ * This class represents usable potions.
+ * Potion is implemented as a subtype of Item. It has an additional stat: healing value.
+ * Heroes can use potions to heal.
+ */
 public class Potion extends Item {
 
     String attribute;

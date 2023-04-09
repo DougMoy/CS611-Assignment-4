@@ -1,4 +1,13 @@
 import java.util.ArrayList;
+/*
+ * MarketInteraction.java
+ * by Douglas Moy, Mark Yang
+ * CS611 Assignment 4
+ *
+ * A MarketInteraction is a subclass extending Interaction
+ * The MarketInteraction class is responsible for players using the market.
+ * Various items can be bought or sold.
+ */
 public class MarketInteraction extends Interaction {
 
 

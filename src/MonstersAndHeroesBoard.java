@@ -1,3 +1,11 @@
+/*
+ * MonstersAndHeroesBoard.java
+ * by Douglas Moy, Mark Yang
+ * CS611 Assignment 4
+ *
+ * A subclass of the Board class.
+ * Responsible for initializing the board with a variety of different tiles.
+ */
 public class MonstersAndHeroesBoard extends Board{
     //generates monstersAndHeroes board
     public MonstersAndHeroesBoard(int rows, int cols){

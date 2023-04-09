@@ -1,7 +1,16 @@
 import java.util.ArrayList;
+/*
+ * Game.java
+ * by Douglas Moy, Mark Yang
+ * CS611 Assignment 4
+ *
+ * Abstract class that represents a playable game.
+ * Game supports Heroes on a Board, taking several types of actions
+ * such as fighting monsters and buying from a market.
+ */
 public abstract class Game {
     protected static Hero[] heroes;
-    protected static Board  gameBoard;
+    protected static Board gameBoard;
 
     public Game(Hero[] heroes, Board gameBoard){
         this.heroes = heroes;

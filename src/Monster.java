@@ -1,3 +1,13 @@
+/*
+ * Monster.java
+ * by Douglas Moy, Mark Yang
+ * CS611 Assignment 4
+ *
+ * Class for a Monster object.
+ * Heroes have a variety of properties, including
+ * name, level, damage, and more.
+ * This class is responsible for updating Monster's stats such as taking damage.
+ */
 public class Monster {
 
     protected String name;

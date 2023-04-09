@@ -1,3 +1,10 @@
+/*
+ * Colors.java
+ * by Douglas Moy, Mark Yang
+ * CS611 Assignment 4
+ *
+ * A class containing color utilities.
+ */
 public class Colors {
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLACK = "\u001B[30m";

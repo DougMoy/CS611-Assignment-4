@@ -1,3 +1,11 @@
+/*
+ * MAndHGame.java
+ * by Douglas Moy, Mark Yang
+ * CS611 Assignment 4
+ *
+ * A subclass of a Game object.
+ * Entry point of the Monsters and Heroes game.
+ */
 public class MAndHGame extends Game {
     public MAndHGame(Hero[] heroes, MonstersAndHeroesBoard gameBoard){
         super(heroes, gameBoard);

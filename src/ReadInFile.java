@@ -4,7 +4,14 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
+/*
+ * ReadInFile.java
+ * by Douglas Moy, Mark Yang
+ * CS611 Assignment 4
+ *
+ * A class containing text file input utilities.
+ * Responsible for reading resource text files.
+ */
 public class ReadInFile {
 
     public static int countRows(String fileName) {

@@ -1,3 +1,11 @@
+/*
+ * PrintArrays.java
+ * by Douglas Moy, Mark Yang
+ * CS611 Assignment 4
+ *
+ * A class containing terminal output utilities.
+ * Responsible for printing arrays.
+ */
 public class PrintArrays {
     //prints and formats 2d string arrays
 

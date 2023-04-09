@@ -1,5 +1,14 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+/*
+ * MonsterGenerator.java
+ * by Douglas Moy, Mark Yang
+ * CS611 Assignment 4
+ *
+ * A factory class that makes Monster objects.
+ * It reads monster information from the resource files, and can
+ * create monsters appropriate for the heroes' levels.
+ */
 public class MonsterGenerator {
     public static int numRowsDragon;
     public static int numRowsExo;

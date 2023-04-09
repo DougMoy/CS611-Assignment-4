@@ -1,3 +1,10 @@
+/*
+ * GameStartMandH.java
+ * by Douglas Moy, Mark Yang
+ * CS611 Assignment 4
+ *
+ * Entry point to the Monsters and Heroes game.
+ */
 public class GameStartMandH {
     //function that gets in all needed info to start the game
     public static void startGame(){

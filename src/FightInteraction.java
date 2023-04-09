@@ -1,6 +1,14 @@
 import java.util.ArrayList;
-
-public class FightInteraction {
+/*
+ * FightInteraction.java
+ * by Douglas Moy, Mark Yang
+ * CS611 Assignment 4
+ *
+ * A FightInteraction is a subclass extending Interaction
+ * The FightInteraction class is responsible for player combat.
+ * An array of Heros fight an array of Monsters until either team is fainted.
+ */
+public class FightInteraction extends Interaction{
     private Hero[] currentHeroes;
     private static ArrayList<Monster> monsters;
     private static Monster[] arrayMonsters;
@@ -11,6 +19,7 @@ public class FightInteraction {
     private int monsterLevel;
     //fight interaction takes in the heroes that are fighting and pits them against the monsters.
     public FightInteraction(Hero[]currentHeroes, ArrayList<Monster>  monsters){
+        super(null);
         this.currentHeroes= currentHeroes;
         this.monsters = monsters;
         this.arrayMonsters = new Monster[monsters.size()];

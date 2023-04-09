@@ -5,7 +5,7 @@
  *
  * This class represents equippable armor.
  * Armor is implemented as a subtype of Item. It has an additional stat: damage reduction.
- * Heros can equip armor as a type of equipment.
+ * Heroes can equip armor as a type of equipment.
  */
 public class Armor extends Item {
     //class represents armor item, extends item because armor is an item

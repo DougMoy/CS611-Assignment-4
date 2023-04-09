@@ -1,3 +1,12 @@
+/*
+ * Weapon.java
+ * by Douglas Moy, Mark Yang
+ * CS611 Assignment 4
+ *
+ * This class represents equippable weapons.
+ * Weapon is implemented as a subtype of Item. It has a damage and hand usage.
+ * Heroes can equip weapons as a type of equipment.
+ */
 public class Weapon extends Item {
     private int damage;
     private int hands;

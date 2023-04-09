@@ -22,7 +22,7 @@ iceSpell.java extends spell which extends item. Represents a iceSpell in the gam
 input.java houses functions that get user input from the user. IE selecting heroes, selecting numbers.
 interaction.java is abstract interaction class. marketInteraction extends. Used for one hero interactions
 item.java is an abstract item class. Represents an item in the game. Implements abstract useItem function that all items must implement.
-lightningSpell.java extends spell which extends item. Represents a lightningSpell in the game
+LightningSpell.java extends spell which extends item. Represents a LightningSpell in the game
 main.java is portal to game.
 mAndHGame.java extends the game class, represents a more specific version of the game that is monsters and heroes. Game is run in here.
 marketInteraction.java extends interaction class, used to simulate market transactions.

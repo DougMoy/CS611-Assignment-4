@@ -1,5 +1,12 @@
-
-   import java.util.ArrayList;
+import java.util.ArrayList;
+/*
+ * Tile.java
+ * by Douglas Moy, Mark Yang
+ * CS611 Assignment 4
+ *
+ * The Tile object represents a space on a board.
+ * It stores properties like isWalkable and more.
+ */
 public abstract class Tile {
         //Tile Class, has index and piece.
         protected boolean isPlayerOn;

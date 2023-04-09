@@ -1,6 +1,14 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-
+/*
+ * GenerateRandom.java
+ * by Douglas Moy, Mark Yang
+ * CS611 Assignment 4
+ *
+ * Class for a Hero object.
+ * Heroes have a variety of properties, including
+ * name, level, health, strength, dexterity, agility, and more.
+ * This class is responsible for updating Hero's stats and taking certain actions like equipping items.
+ */
 public abstract class Hero {
     protected String name;
     protected int level;

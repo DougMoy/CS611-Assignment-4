@@ -1,3 +1,12 @@
+/*
+ * Spell.java
+ * by Douglas Moy, Mark Yang
+ * CS611 Assignment 4
+ *
+ * An abstract class representing usable spells.
+ * Armor is implemented as a subtype of Item. It has a damage and cost.
+ * Heroes can use spells at the expense of mana.
+ */
 public abstract class Spell extends Item {
 
     protected int damageValue;
