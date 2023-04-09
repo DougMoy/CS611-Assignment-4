@@ -6,9 +6,10 @@ public class HeroNexus extends MarketTile{
         super(index);
         this.itemsAvail = new ArrayList<Item>();
         String[][] tempArray;
+
        for (int i = 0; i < 6; i++){
            tempArray = ReadInFile.readInText(txtFilesItems[i]);
-           for(int j = 0; j < tempArray.length; j ++){
+           for(int j = 1; j < tempArray.length; j ++){
                if(i ==0){
                    itemsAvail.add( new Armor(tempArray[j][0], Integer.parseInt(tempArray[j][2]), Integer.parseInt(tempArray[j][1]), Integer.parseInt(tempArray[j][3])));
                }
@@ -37,10 +38,13 @@ public class HeroNexus extends MarketTile{
        }
 
        public void printContents(){
+        int count = 0;
            System.out.println("Here is what I have:");
            System.out.println("KEY: " + Colors.ANSI_GREEN + "Armor " + Colors.ANSI_RED + "FireSpells " + Colors.ANSI_PURPLE + "Potions " +Colors.ANSI_CYAN + "Weapons " + Colors.ANSI_YELLOW + "LightningSpells " + Colors.ANSI_BLUE + "IceSpells " + Colors.ANSI_WHITE + "Items the heroes have sold me" +Colors.ANSI_RESET   );
-           for (int i =0; i < itemsAvail.size(); i++){
-
+           for (int i =0; i < 6; i++){
+                String [][] tempItemArray = ReadInFile.readInText(txtFilesItems[i]);
+                PrintArrays.printArray(tempItemArray, colors[i], count);
+                count = count + tempItemArray.length -1;
            }
        }
     }

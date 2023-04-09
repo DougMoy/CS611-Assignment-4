@@ -61,7 +61,7 @@ public class MarketTile extends Tile{
 
 
         System.out.println("Here is what I have:");
-        System.out.println("KEY: " + Colors.ANSI_GREEN + "Armor " + Colors.ANSI_RED + "FireSpells " + Colors.ANSI_PURPLE + "Potions " +Colors.ANSI_CYAN + "Weapons " + Colors.ANSI_YELLOW + "LightningSpells " + Colors.ANSI_BLUE + "IceSpells " + Colors.ANSI_WHITE + "Items the heroes have sold me" +Colors.ANSI_RESET   );
+        System.out.println("KEY: " + Colors.ANSI_GREEN + "Armor " + Colors.ANSI_RED + "FireSpells " + Colors.ANSI_PURPLE + "Potions " +Colors.ANSI_CYAN + "Weapons " + Colors.ANSI_YELLOW + "LightningSpells " + Colors.ANSI_BLUE + "IceSpells " + Colors.ANSI_RESET   );
         for (int i = 0; i < 6; i++){
             String [][] returnArray = new String[][]{ReadInFile.readInHeader(txtFilesItems[i]),itemsAvail.get(i).getItemDescription()};
             PrintArrays.printArray(returnArray,colors[i],i);
