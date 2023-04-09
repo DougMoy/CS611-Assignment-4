@@ -23,6 +23,10 @@ public abstract class Hero {
     protected boolean fainted;
 
     protected int defense;
+    protected int tempDex;
+    protected int tempAgility;
+
+    protected int tempStrength;
 
     public Hero(String name, int level, int xp, int hp, int mana, int strength, int dexterity, int agility, int gold, ArrayList<Item> items){
         this.name = name;
@@ -41,11 +45,38 @@ public abstract class Hero {
         this.equippedWeapons = new ArrayList<>();
         this.fainted = false;
         this.defense = 0;
+        this.tempDex = 0;
+        this.tempAgility = 0;
+        this.tempStrength = 0;
+
+
     }
     public String getName(){
         return this.name;
     }
 
+    public void updateDex(int tempIncrease){
+        this.tempDex = tempIncrease;
+        this.dexterity = this.dexterity + tempDex;
+    }
+    public void updateAgility(int tempIncrease){
+        this.tempAgility = tempIncrease;
+        this.agility = this.agility + tempAgility;
+    }
+    public void updateStrength(int tempIncrease){
+        this.tempStrength = tempIncrease;
+        this.strength = this.strength + tempStrength;
+    }
+
+
+    public void resetHero (){
+        this.dexterity = this.dexterity - this.tempDex;
+        this.strength = this.strength - this.tempStrength;
+        this.agility = this.agility - this.tempAgility;
+        this.tempDex = 0;
+        this.tempAgility = 0;
+        this.tempStrength = 0;
+    }
     public boolean getFainted(){
         return this.fainted;
     }

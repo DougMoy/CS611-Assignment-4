@@ -48,7 +48,9 @@ public abstract class Tile {
 
         public void printContents(){}
 
+        public void enhanceHeroes(Hero[] heroes){
 
+        }
         public ArrayList<Item> getContents()
 
         {
