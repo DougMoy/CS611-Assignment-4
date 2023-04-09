@@ -71,20 +71,16 @@ public abstract class Board {
                     System.out.print(ANSI_RESET);
                     System.out.print(" |");
                 }
-                else {
-                    if(actualBoard[i][j].getMarker().equals("M")){
+                else if(actualBoard[i][j].getMarker().equals("M")){
                         System.out.print(" ");
                         System.out.print(ANSI_RED);
                         System.out.print(actualBoard[i][j].getMarker());
 
                         System.out.print(ANSI_RESET);
                         System.out.print(" |");
-                    }
-                    else{
-                        System.out.print(" " + actualBoard[i][j].getMarker() + " |");
-                    }
-
-
+                }
+                else {
+                    System.out.print(" " + actualBoard[i][j].getMarker() + " |");
                 }
             }
 

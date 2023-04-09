@@ -1,6 +1,12 @@
 public class LegendsOfValorBoard extends Board {
+    int heroIndex;
+    int[] playerXs, playerYs;
+    int[] monsterXs, monsterYs;
     public LegendsOfValorBoard (int rows, int cols){
         super (rows, cols);
+        this.heroIndex = 0;
+        int[] playerXs = new int[3], playerYs = new int[3];
+        int[] monsterXs = new int[3], monsterYs = new int[3];
         int count = 0;
 
         for (int i = 0; i< rows; i++){
@@ -40,5 +46,13 @@ public class LegendsOfValorBoard extends Board {
 
     }
 
-
+    //ad hoc method to use parent methods.
+    public void setHero(int i) {
+        assert i > 0 && i < 3;
+        playerXs[heroIndex] = playerX;
+        playerYs[heroIndex] = playerY;
+        heroIndex = i;
+        playerX = playerXs[i];
+        playerY = playerYs[i];
+    }
 }
