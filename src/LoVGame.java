@@ -31,7 +31,7 @@ public class LoVGame extends Game {
                         }
                         case "m" -> {
                             //TODO: only allow current hero should be done
-                            this.enterMarketIndividual(h);
+                            if (gameBoard.returnPlayerTile() instanceof HeroNexus) this.enterMarketIndividual(h);
                             continue;
                         }
                         case "i" -> {
