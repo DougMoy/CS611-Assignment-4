@@ -108,6 +108,15 @@ public abstract class Hero {
     public void printHero(String heroColor){
         System.out.println(heroColor);
         System.out.println("Name: " + this.name+ " HP: " + this.hp +  " Level: " + this.level+ " XP: "+ this.xp + " Mana: " + this.mana + " Strength: " + this.strength + " Agility: " + this.agility+ " Dexterity: " + this.dexterity + " Money: " + this.gold);
+        if(this.equippedArmor != null){
+            System.out.println("Equipped Armor: " + this.equippedArmor.name);
+        }
+        if(this.equippedWeapons.size() != 0){
+            System.out.println("Equipped Weapons:");
+            for(int i = 0; i < equippedWeapons.size(); i++){
+                System.out.print(equippedWeapons.get(i).name+ "    ");
+            }
+        }
         System.out.println("Here is " + this.name + "'s inventory:");
         this.printItems(heroColor);
     }
@@ -119,6 +128,21 @@ public abstract class Hero {
             items.get(i).labeledItem(i, heroColor);
         }
         System.out.println(Colors.ANSI_RESET);
+    }
+    public void printArmorAndWeapons(String heroColor){
+        for (int i = 0; i < items.size(); i++){
+            if (items.get(i) instanceof Weapon || items.get(i) instanceof Armor) {
+                items.get(i).labeledItem(i, heroColor);
+            }
+            System.out.println(Colors.ANSI_RESET);
+        }
+    }
+
+    public boolean isIndexArmorOrWeapon(int index){
+        if (items.get(index) instanceof Weapon || items.get(index) instanceof Armor ){
+            return true;
+        }
+        return false;
     }
     //removes items from a hero's inventory
     public void removeItem(int i){
