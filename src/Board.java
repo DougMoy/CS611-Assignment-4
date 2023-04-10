@@ -126,14 +126,7 @@ public abstract class Board {
                 System.out.print("---+");
 
             }
-
-
-
-
-    System.out.println();
-
-
-
+        System.out.println();
         }
         System.out.print("  ");
         for (int j = 0; j < cols; j++) {
@@ -146,6 +139,7 @@ public abstract class Board {
             }
 
         }
+        System.out.println();
 
     }
     //individual functions that move the player in a direction on the board
