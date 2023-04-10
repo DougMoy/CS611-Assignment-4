@@ -230,7 +230,6 @@ public abstract class Hero {
     }
 
 
-
     public boolean setEquippedWeapons(Weapon weaponTo){
         if(this.numHands >= weaponTo.getHands()) {
             this.equippedWeapons.add(weaponTo);
@@ -265,6 +264,19 @@ public abstract class Hero {
             equippedWeapons.remove(i);
         }
     }
+    public void reequipArmor(){
+        if (equippedArmor!= null) {
+            this.items.add(equippedArmor);
+            equippedArmor = null;
+        }
+    }
+    public void reequipBothWeapons(){
+        for(int i = 0; i < equippedWeapons.size(); i++){
+            this.items.add(equippedWeapons.get(i));
+            equippedWeapons.remove(i);
+        }
+    }
+
 
     public void checkForLevelUp(){
         if (this.xp >= (this.level * 10)){

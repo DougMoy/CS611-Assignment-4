@@ -55,13 +55,7 @@ public class LoVGame extends Game {
                                     System.out.println("Please select a valid index that is armor or a weapon");
                                     userIndex = Input.getInt();
                                 }
-                                if(h.equippedArmor == null && h.items.get(userIndex) instanceof Armor){
-                                    h.items.get(userIndex).useItem(h);
-                                }
-                                else if(h.equippedArmor!= null && h.items.get(userIndex) instanceof Armor){
-
-                                }
-
+                                h.getItem(userIndex).useItem(h);
 
                             }
                             continue;

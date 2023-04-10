@@ -24,7 +24,10 @@ public class Armor extends Item {
             System.out.println("Successfully equipped");
             currentHero.removeItem(this);
         }else{
-            System.out.println("Unsuccessfully equipped");
+
+            currentHero.removeItem(this);
+            currentHero.reequipArmor();
+            currentHero.setEquipArmor(this);
         }
     }
 

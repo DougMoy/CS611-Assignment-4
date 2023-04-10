@@ -34,7 +34,32 @@ public class Weapon extends Item {
             System.out.println("Successfully equipped item");
             currentHero.removeItem(this);
         }else{
-            System.out.println("Sorry unable to equip this weapon");
+
+            if (this.getHands() == 2){
+
+                currentHero.removeItem(this);
+                currentHero.reequipBothWeapons();
+                currentHero.setEquippedWeapons(this);
+
+            }
+            else if(this.getHands() == 1){
+                System.out.println("Please select a weapon to unequip so the new weapon can be equipped");
+                for (int i = 0; i < currentHero.equippedWeapons.size(); i++){
+                    System.out.println("[" + i +"] "+ currentHero.equippedWeapons.get(i).name);
+                }
+                int userInput = Input.getInt();
+                while(userInput < 0 && userInput >= currentHero.equippedWeapons.size()){
+                    System.out.println("Please select a valid weapon to unequip");
+                    userInput = Input.getInt();
+
+                }
+                currentHero.removeItem(this);
+                currentHero.equippedWeapons.remove(userInput);
+                currentHero.setEquippedWeapons(this);
+
+            }
+
+
         }
     }
 }
