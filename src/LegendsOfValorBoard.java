@@ -55,4 +55,50 @@ public class LegendsOfValorBoard extends Board {
         playerX = playerXs[i];
         playerY = playerYs[i];
     }
+
+    @Override
+    public boolean isValidMove(String direction) {
+        if (super.isValidMove(direction)){
+            //test collision with monsters and players
+            for (int i = 0; i < monsterXs.length; i++){
+                switch(direction){
+                    case "w" -> {if (playerX - 1 == monsterXs[i] && playerY == monsterYs[i]) {
+                        return false;
+                        }
+                    }
+                    case "a" -> {if (playerX == monsterXs[i] && playerY - 1 == monsterYs[i]) {
+                        return false;
+                        }
+                    }
+                    case "s" -> {if (playerX + 1 == monsterXs[i] && playerY == monsterYs[i]) {
+                        return false;
+                        }
+                    }
+                    case "d" -> {if (playerX == monsterXs[i] && playerY + 1 == monsterYs[i]) {
+                        return false;
+                        }
+                    }
+                }
+            }
+            for (int i = 0; i < playerXs.length; i++){
+                if (i == heroIndex) continue;
+                switch(direction){
+                    case "w" -> {if (playerX - 1 == playerXs[i] && playerY == playerYs[i])
+                        return false;
+                    }
+                    case "a" -> {if (playerX == playerXs[i] && playerY - 1 == playerYs[i])
+                        return false;
+                    }
+                    case "s" -> {if (playerX + 1 == playerXs[i] && playerY == playerYs[i])
+                        return false;
+                    }
+                    case "d" -> {if (playerX == playerXs[i] && playerY + 1 == playerYs[i])
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+        return false;
+    }
 }

@@ -41,16 +41,24 @@ public class Input {
         System.out.println("S/s: move down");
         System.out.println("D/d: move right");
         System.out.println("I/i: show information");
-        System.out.println("M/m: enter market (when on market tile)");
+        System.out.println("R/r: recall");
+        System.out.println("T/t: teleport to another hero");
+        System.out.println("M/m: enter market (when on nexus tile)");
         System.out.println("Q/q: to quit");
 
         String letter;
-        letter = ogInput.nextLine();
-        while (!letter.equals("W") &&!letter.equals("w")  && !letter.equals("A") &&!letter.equals("a") && !letter.equals("S") &&!letter.equals("s") && !letter.equals("d") &&!letter.equals("D")
-        && !letter.equals("Q") &&!letter.equals("q") && !letter.equals("I") &&!letter.equals("i") && !letter.equals("M") &&!letter.equals("m")){
-            System.out.println("Sorry please enter a valid input");
-            letter = getLetter();
-
+        letter = ogInput.nextLine().trim().toLowerCase();
+        boolean valid = false;
+        while (!valid){
+            switch (letter){
+                case "w", "a", "s", "d", "i", "r", "t", "m", "q" -> {
+                    valid = true;
+                }
+                default -> {
+                    System.out.println("Sorry please enter a valid input");
+                    letter = getLetter();
+                }
+            }
         }
         return letter;
     }

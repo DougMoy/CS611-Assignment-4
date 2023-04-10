@@ -13,32 +13,56 @@ public class LoVGame extends Game {
     }
     //function that runs the game
     public void runGame(){
-        while(true){
+        String userInput = "D";
+        while(userInput != "q"){
             //heroes take turns
-            String userInput = "D";
-            for (int i = 0; i < this.heroes.length; i++) {
-                Hero h = this.heroes[i];
-
-                gameBoard.printBoard();
-                System.out.println("Hero" + i + "'s turn: " + h.getName());
-                userInput = Input.userInputLetter().toLowerCase();
+            for (int i = 0; i < heroes.length; i++) {
+                Hero h = heroes[i];
+                boolean valid = false;
+                while (!valid) {
+                    gameBoard.printBoard();
+                    System.out.println("Hero" + i + "'s turn: " + h.getName());
+                    userInput = Input.userInputLetter().toLowerCase();
+                    switch (userInput) {
+                        case "w", "a", "s", "d" -> {
+                            if (gameBoard.isValidMove(userInput)) valid = true;
+                        }
+                        case "m" -> {
+                            if (gameBoard.returnPlayerTile() instanceof HeroNexus) valid = true;
+                        }
+                        case "i" -> {
+                            valid = true;
+                        }
+                        case "q" -> {
+                            promptAgain();
+                            return;
+                        }
+                    }
+                    if (!valid) System.out.println("Invalid move, please try again.");
+                }
                 switch (userInput) {
-                    case "w","a","s","d" -> {}
-                    case "m" -> {}
-                    case "i" -> {}
-                    case "q" -> {}
+                    case "w","a","s","d" -> {
+                        if (gameBoard.isValidMove(userInput)) valid = true;
+                    }
+                    case "m" -> {if (gameBoard.returnPlayerTile() instanceof HeroNexus) valid = true;
+                    }
+                    case "i" -> {valid = true;}
+                    case "q" -> {promptAgain(); return;}
                 }
             }
 
             //monsters take turns
-            for (int i = 0; i < this.monsters.length; i++){
+            for (int i = 0; i < monsters.length; i++){
 
             }
 
             break;
         }
 
+        promptAgain();
+    }
 
+    private void promptAgain(){
         System.out.println("Would you like to play again? Y/N");
         String newVar = Input.getLetter();
         while(!newVar.equals("Y") && !newVar.equals("N")){
@@ -46,11 +70,11 @@ public class LoVGame extends Game {
             newVar = Input.getLetter();
         }
         if (newVar.equals("Y")){
-            GameStartMandH.startGame();
+            //GameStartMandH.startGame();
+            //Start game here
         }
         else{
             return;
         }
     }
-
 }
