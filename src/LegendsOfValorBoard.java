@@ -61,6 +61,28 @@ public class LegendsOfValorBoard extends Board {
         playerY = playerYs[i];
     }
 
+    public boolean checkHeroWin(){
+        //check for win function for heroes, allows for expandability because not hard coding where monster nexi are
+        for (int i = 0; i < rows; i++){
+            for (int j = 0; j < cols; j++){
+                if(this.actualBoard[i][j].isPlayerOn = true && this.actualBoard[i][j] instanceof MonsterNexus){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean checkMonsterWin(){
+        for (int i = 0; i < monsterXs.size(); i++){
+            for (int j = 0; j < monsterYs.size(); i ++){
+                if (this.actualBoard[monsterXs.get(i)][monsterYs.get(j)] instanceof HeroNexus){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
     @Override
     public boolean isValidMove(String direction) {
         if (super.isValidMove(direction)){

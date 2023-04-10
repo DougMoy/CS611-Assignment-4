@@ -117,6 +117,11 @@ public class LoVGame extends Game {
                 switch (userInput) {
                     case "w","a","s","d" -> {
                         gameBoard.playMoveDirection(userInput);
+                       if (((LegendsOfValorBoard) gameBoard).checkHeroWin()){
+                           //Heroes have won;
+                           System.out.println("CONGRATS ON WINNING LEGENDS OF VALOR");
+                           break;
+                       }
                     }
                     case "f" -> {
                         LoVInteraction.heroAttacks((LegendsOfValorBoard) gameBoard, heroes, monsters, i);
@@ -133,7 +138,9 @@ public class LoVGame extends Game {
 
                 }
             }
-            //TODO: regenerate 10% health and mana
+            for (int i = 0; i < heroes.length; i++){
+                heroes[i].increaseHPandMANAafterRound();
+            }
 
             //monsters take turns
             for (int i = 0; i < monsters.size(); i++){
@@ -141,8 +148,10 @@ public class LoVGame extends Game {
                 //TODO: heroes that die go back to nexus
             }
 
-            //TODO: check for either side's victory, i.e. in opposing nexus
-            break;
+            if (((LegendsOfValorBoard) gameBoard).checkMonsterWin()){
+                System.out.println("YOU HAVE LOST!!!");
+                break;
+            }
         }
 
         promptAgain();

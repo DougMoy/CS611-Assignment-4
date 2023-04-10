@@ -188,6 +188,11 @@ public abstract class Hero {
     public void increaseMpAfterFight(){
         this.mana = this.mana + (this.mana/10);
     }
+
+    public void increaseHPandMANAafterRound(){
+        increaseHpAfterFight();
+        increaseMpAfterFight();
+    }
     public boolean setEquipArmor(Armor equipArmor){
         if (this.equippedArmor != null) {
             this.equippedArmor = equipArmor;
