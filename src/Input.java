@@ -105,6 +105,27 @@ public class Input {
         }
         return returnInt;
     }
+
+    //prompts for a valid integer in range
+    public static int pickInt(int min, int max){
+        String stringInt;
+        int returnInt = -1;
+        boolean valid = false;
+        while(!valid){
+            try {
+                System.out.print("Number [" + min + "-" + max + "]:");
+                stringInt = ogInput.nextLine();
+                returnInt = Integer.parseInt(stringInt);
+                valid = true;
+            }
+            catch (NumberFormatException a) {
+                System.out.println("Invalid Input, Please Try Again!");
+            }
+        }
+
+        return returnInt;
+    }
+
    public static Hero getHero() {
        int count = 0;
        int count1;
