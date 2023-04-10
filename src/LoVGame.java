@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 /*
  * LoVGame.java
@@ -9,7 +10,7 @@ import java.util.ArrayList;
  * Entry point of the Legends of Valor game.
  */
 public class LoVGame extends Game {
-    protected static ArrayList<Monster> monsters;
+    protected static List<Monster> monsters;
     public LoVGame(Hero[] heroes, LegendsOfValorBoard gameBoard){
         super(heroes, gameBoard);
     }
@@ -21,6 +22,7 @@ public class LoVGame extends Game {
             //heroes take turns
             for (int i = 0; i < heroes.length; i++) {
                 Hero h = heroes[i];
+                ((LegendsOfValorBoard)gameBoard).setHero(i);
 
                 //wait for valid input
                 boolean valid = false;
