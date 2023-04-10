@@ -36,8 +36,8 @@ public class Input {
     //more specific userInput letter that is used for main menu controls
     public static String userInputLetter(){
         System.out.println("Controls:");
-        System.out.println("F/f: attack");
-        System.out.println("G/g: cast a spell");
+        System.out.println("F/f: attack (a monster within one space)");
+        System.out.println("G/g: cast a spell (to a monster within two spaces)");
         System.out.println("W/w: move up");
         System.out.println("A/a: move right");
         System.out.println("S/s: move down");
