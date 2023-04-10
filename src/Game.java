@@ -44,6 +44,8 @@ public abstract class Game {
 
     }
 
+
+
     //enterMarket simulation, utilizes marketINteraction class
     public void enterMarket(){
         int selection = 7;

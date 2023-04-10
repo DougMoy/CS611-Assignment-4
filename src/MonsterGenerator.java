@@ -85,6 +85,15 @@ public class MonsterGenerator {
         return returnArray;
     }
 
+    public Monster generateIndividualMonster (int level){
+        MonsterGenerator currentGen = new MonsterGenerator();
+        String [][] filteredMonsters = currentGen.filterMonstersLevel(level);
+        String [] returnMonsterStringArray = GenerateRandom.generateRandomWnoHeader(filteredMonsters, filteredMonsters.length);
+        Monster returnMonster = new Monster (returnMonsterStringArray[0], Integer.valueOf(returnMonsterStringArray[1]), Integer.valueOf(returnMonsterStringArray[2]), Integer.valueOf(returnMonsterStringArray[3]), Integer.valueOf(returnMonsterStringArray[4]));
+        return returnMonster;
+
+    }
+
 
 
 
