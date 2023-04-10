@@ -138,6 +138,21 @@ public abstract class Hero {
         }
     }
 
+    public void printPotions(String heroColor){
+        for (int i = 0; i < items.size(); i++){
+            if (items.get(i) instanceof Potion) {
+                items.get(i).labeledItem(i, heroColor);
+            }
+            System.out.println(Colors.ANSI_RESET);
+        }
+    }
+    public boolean isPotion(int index){
+        if (items.get(index) instanceof Potion){
+            return true;
+        }
+        return false;
+    }
+
     public boolean isIndexArmorOrWeapon(int index){
         if (items.get(index) instanceof Weapon || items.get(index) instanceof Armor ){
             return true;

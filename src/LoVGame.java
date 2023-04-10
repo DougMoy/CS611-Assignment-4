@@ -48,17 +48,37 @@ public class LoVGame extends Game {
                                 quitVar = Input.getLetter();
                             }
                             if(quitVar.equals("P") || quitVar.equals("p")){
-                                System.out.println("Which item would you like to equip?");
+                                System.out.println("Which item would you like to equip?, enter -1 to leave this menu");
                                 h.printArmorAndWeapons(Colors.heroColors[i]);
                                 int userIndex = Input.getInt();
-                                while(h.isIndexArmorOrWeapon(userIndex) == false){
-                                    System.out.println("Please select a valid index that is armor or a weapon");
+                                while(h.isIndexArmorOrWeapon(userIndex) == false || userIndex != -1){
+                                    System.out.println("Please select a valid index that is armor or a weapon, or -1 to leave");
                                     userIndex = Input.getInt();
+                                }
+                                if(userIndex == -1){
+                                    continue;
                                 }
                                 h.getItem(userIndex).useItem(h);
 
                             }
                             continue;
+                        }
+                        case "p" -> {
+                            System.out.println("What potion do you want to consume? enter -1 to leave this menu");
+                            h.printPotions(Colors.heroColors[i]);
+                            int userIndex = Input.getInt();
+                            while(h.isPotion(userIndex) == false || userIndex != -1){
+                                System.out.println("Please select a valid index that is armor or a weapon, or -1 to leave");
+                                userIndex = Input.getInt();
+                            }
+                            if(userIndex == -1){
+                                continue;
+                            }
+                            else{
+                                h.getItem(userIndex).useItem(h);
+                                valid = true;
+                            }
+
                         }
                         case "f", "g", "t", "r" -> {
                             valid = true;
@@ -87,6 +107,7 @@ public class LoVGame extends Game {
                     case "t" -> {
                         //TODO: implement teleport
                     }
+
                 }
             }
 
