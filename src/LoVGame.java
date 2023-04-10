@@ -81,6 +81,7 @@ public class LoVGame extends Game {
                 //TODO: implement monster turns
             }
 
+            //TODO: check for either side's victory, i.e. in opposing nexus
             break;
         }
 
