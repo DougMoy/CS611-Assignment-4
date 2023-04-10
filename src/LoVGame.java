@@ -17,6 +17,7 @@ public class LoVGame extends Game {
     public void runGame(){
         String userInput = "D";
         while(userInput != "q"){
+            //TODO: every three turns spawn new monster
             //heroes take turns
             for (int i = 0; i < heroes.length; i++) {
                 Hero h = heroes[i];
@@ -82,8 +83,26 @@ public class LoVGame extends Game {
                             }
 
                         }
-                        case "f", "g", "t", "r" -> {
+                        case "t", "r" -> {
                             valid = true;
+                        }
+                        case "f" -> {
+                            if (LoVInteraction.hasMonsterNearby((LegendsOfValorBoard) gameBoard,
+                                    heroes, monsters, i, 1)){
+                                valid = true;
+                            }
+                            else {
+                                System.out.println("No valid targets in range.");
+                            }
+                        }
+                        case "g" -> {
+                            if (LoVInteraction.hasMonsterNearby((LegendsOfValorBoard) gameBoard,
+                                    heroes, monsters, i, 2)){
+                                valid = true;
+                            }
+                            else {
+                                System.out.println("No valid targets in range.");
+                            }
                         }
                         case "q" -> {
                             promptAgain();
@@ -98,10 +117,10 @@ public class LoVGame extends Game {
                         gameBoard.playMoveDirection(userInput);
                     }
                     case "f" -> {
-                        //TODO: implement attacking
+                        LoVInteraction.heroAttacks((LegendsOfValorBoard) gameBoard, heroes, monsters, i);
                     }
                     case "g" -> {
-                        //TODO: implement spell casting
+                        LoVInteraction.heroCastsSpell((LegendsOfValorBoard) gameBoard, heroes, monsters, i);
                     }
                     case "r" -> {
                         //TODO: implement recall
@@ -112,10 +131,12 @@ public class LoVGame extends Game {
 
                 }
             }
+            //TODO: regenerate 10% health and mana
 
             //monsters take turns
             for (int i = 0; i < monsters.size(); i++){
                 //TODO: implement monster turns
+                //TODO: heroes that die go back to nexus
             }
 
             //TODO: check for either side's victory, i.e. in opposing nexus
