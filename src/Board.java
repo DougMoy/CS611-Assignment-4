@@ -41,7 +41,7 @@ public abstract class Board {
 
         //prints the board
 
-        System.out.print("+");
+        System.out.print("  +");
 
         for (int j = 0; j < cols; j++) {
 
@@ -119,7 +119,7 @@ public abstract class Board {
 
             System.out.println("");
 
-            System.out.print("+");
+            System.out.print("  +");
 
             for (int j = 0; j < cols; j++) {
 
@@ -127,21 +127,23 @@ public abstract class Board {
 
             }
 
-            for (int j = 0; j < cols; j++) {
 
-                if (j == 0){
-                    System.out.print("  " + j);
-                }
-                else{
-                    System.out.print("   " + j);
-                }
 
+
+    System.out.println();
+
+
+
+        }
+        System.out.print("  ");
+        for (int j = 0; j < cols; j++) {
+
+            if (j == 0){
+                System.out.print("  " + j);
             }
-
-
-            System.out.println("");
-
-
+            else{
+                System.out.print("   " + j);
+            }
 
         }
 
