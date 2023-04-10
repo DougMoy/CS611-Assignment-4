@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * Entry point of the Legends of Valor game.
  */
 public class LoVGame extends Game {
-    protected static ArrayList<> monsters;
+    protected static ArrayList<Monster> monsters;
     public LoVGame(Hero[] heroes, LegendsOfValorBoard gameBoard){
         super(heroes, gameBoard);
     }
