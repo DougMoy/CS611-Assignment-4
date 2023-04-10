@@ -2,9 +2,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LegendsOfValorBoard extends Board {
-    int heroIndex;
-    int[] playerXs, playerYs;
-    List<Integer> monsterXs, monsterYs;
+    public int heroIndex;
+    public int[] playerXs, playerYs;
+    public List<Integer> monsterXs, monsterYs;
     public LegendsOfValorBoard (int rows, int cols){
         super (rows, cols);
         this.heroIndex = 0;
