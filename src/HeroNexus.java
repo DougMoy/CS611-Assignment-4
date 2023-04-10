@@ -6,6 +6,7 @@ public class HeroNexus extends MarketTile{
         super(index);
         this.itemsAvail = new ArrayList<Item>();
         String[][] tempArray;
+        this.marker = "H";
 
        for (int i = 0; i < 6; i++){
            tempArray = ReadInFile.readInText(txtFilesItems[i]);

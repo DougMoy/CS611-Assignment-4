@@ -8,15 +8,7 @@
  * The class is responsible for keeping track of the players location and moving the player.
  */
 public abstract class Board {
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_BLACK = "\u001B[30m";
-    public static final String ANSI_RED = "\u001B[31m";
-    public static final String ANSI_GREEN = "\u001B[32m";
-    public static final String ANSI_YELLOW = "\u001B[33m";
-    public static final String ANSI_BLUE = "\u001B[34m";
-    public static final String ANSI_PURPLE = "\u001B[35m";
-    public static final String ANSI_CYAN = "\u001B[36m";
-    public static final String ANSI_WHITE = "\u001B[37m";
+
     protected static int rows;
 
     protected static int cols;
@@ -61,24 +53,65 @@ public abstract class Board {
 
         for (int i = 0; i < rows; i++) {
 
-            System.out.print("|");
+            System.out.print(i + " |");
 
             for (int j = 0; j < cols; j++) {
                 if (actualBoard[i][j].isThePlayerOn()){
                     System.out.print(" ");
-                    System.out.print(ANSI_CYAN);
+                    System.out.print(Colors.ANSI_CYAN);
                     System.out.print("@");
-                    System.out.print(ANSI_RESET);
+                    System.out.print(Colors.ANSI_RESET);
                     System.out.print(" |");
                 }
                 else if(actualBoard[i][j].getMarker().equals("M")){
                         System.out.print(" ");
-                        System.out.print(ANSI_RED);
+                        System.out.print(Colors.ANSI_RED);
                         System.out.print(actualBoard[i][j].getMarker());
 
-                        System.out.print(ANSI_RESET);
+                        System.out.print(Colors.ANSI_RESET);
                         System.out.print(" |");
                 }
+                else if(actualBoard[i][j].getMarker().equals("H")){
+                    System.out.print(" ");
+                    System.out.print(Colors.ANSI_BLUE);
+                    System.out.print(actualBoard[i][j].getMarker());
+
+                    System.out.print(Colors.ANSI_RESET);
+                    System.out.print(" |");
+                }
+                else if (actualBoard[i][j].getMarker().equals("K")){
+                    System.out.print(" ");
+                    System.out.print(Colors.ANSI_GREEN);
+                    System.out.print(actualBoard[i][j].getMarker());
+
+                    System.out.print(Colors.ANSI_RESET);
+                    System.out.print(" |");
+                }
+                else if (actualBoard[i][j].getMarker().equals("B")){
+                    System.out.print(" ");
+                    System.out.print(Colors.ANSI_PURPLE);
+                    System.out.print(actualBoard[i][j].getMarker());
+
+                    System.out.print(Colors.ANSI_RESET);
+                    System.out.print(" |");
+                } else if (actualBoard[i][j].getMarker().equals("C")){
+                    System.out.print(" ");
+                    System.out.print(Colors.ANSI_YELLOW);
+                    System.out.print(actualBoard[i][j].getMarker());
+
+                    System.out.print(Colors.ANSI_RESET);
+                    System.out.print(" |");
+                }
+             else if (actualBoard[i][j].getMarker().equals("E")){
+                System.out.print(" ");
+                System.out.print(Colors.ANSI_RED);
+                System.out.print(actualBoard[i][j].getMarker());
+
+                System.out.print(Colors.ANSI_RESET);
+                System.out.print(" |");
+            }
+
+
                 else {
                     System.out.print(" " + actualBoard[i][j].getMarker() + " |");
                 }
@@ -93,6 +126,18 @@ public abstract class Board {
                 System.out.print("---+");
 
             }
+
+            for (int j = 0; j < cols; j++) {
+
+                if (j == 0){
+                    System.out.print("  " + j);
+                }
+                else{
+                    System.out.print("   " + j);
+                }
+
+            }
+
 
             System.out.println("");
 
