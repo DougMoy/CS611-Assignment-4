@@ -56,7 +56,12 @@ public abstract class Game {
             System.out.println("Welcome to my store " + heroes[selection].getName() + "!");
 
             MarketInteraction currentMarket = new MarketInteraction(heroes[selection], gameBoard.returnPlayerTile().getContents());
-       int currentHeroLeave = 9;
+            this.BSL(currentMarket, heroes[selection]);
+        }
+    }
+
+    public void BSL (MarketInteraction currentMarket, Hero enteringHero){
+        int currentHeroLeave = 9;
         while (currentHeroLeave != -1){
             System.out.println("Would you like to buy or sell or leave? B/S/L");
             String buyOrSell = Input.getLetter();
@@ -70,9 +75,9 @@ public abstract class Game {
             else if (buyOrSell.equals("B")) {
                 System.out.println("What would you like to buy? Enter -1 for the current hero to leave");
                 gameBoard.returnPlayerTile().printContents();
-               currentHeroLeave = currentMarket.buyItem();
+                currentHeroLeave = currentMarket.buyItem();
             }
-            else if(heroes[selection].items.size() == 0){
+            else if(enteringHero.items.size() == 0){
                 System.out.println("You have no items to sell!");
 
             }
@@ -83,6 +88,20 @@ public abstract class Game {
 
             }
         }
+    }
+    public void enterMarketIndividual(Hero indivHero){
+        String selection = "E";
+
+        while(!selection.equals("L")) {
+
+            System.out.println("Welcome to my store " + indivHero.getName() + "!");
+            System.out.println("Enter L to leave, or any other letter to enter");
+            selection = Input.getLetter();
+            if(selection.equals("L")){
+                return;
+            }
+            MarketInteraction currentMarket = new MarketInteraction(indivHero, gameBoard.returnPlayerTile().getContents());
+            this.BSL(currentMarket, indivHero);
         }
     }
 }
