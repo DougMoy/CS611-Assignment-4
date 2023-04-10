@@ -165,8 +165,7 @@ public class LoVGame extends Game {
             newVar = Input.getLetter();
         }
         if (newVar.equals("Y")){
-            //GameStartMandH.startGame();
-            //TODO: include game starting
+            GameStart.startGameLOV();
         }
         else{
             return;

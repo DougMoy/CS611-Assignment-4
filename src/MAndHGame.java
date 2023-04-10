@@ -75,7 +75,7 @@ public class MAndHGame extends Game {
             newVar = Input.getLetter();
         }
         if (newVar.equals("Y")){
-            GameStartMandH.startGame();
+            GameStart.startGameMandH();
         }
         else{
             return;
