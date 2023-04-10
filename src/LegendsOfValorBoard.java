@@ -1,12 +1,17 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class LegendsOfValorBoard extends Board {
     int heroIndex;
     int[] playerXs, playerYs;
-    int[] monsterXs, monsterYs;
+    List<Integer> monsterXs, monsterYs;
     public LegendsOfValorBoard (int rows, int cols){
         super (rows, cols);
         this.heroIndex = 0;
-        int[] playerXs = new int[3], playerYs = new int[3];
-        int[] monsterXs = new int[3], monsterYs = new int[3];
+        playerXs = new int[3];
+        playerYs = new int[3];
+        monsterXs = new ArrayList();
+        monsterYs = new ArrayList();
         int count = 0;
 
         for (int i = 0; i< rows; i++){
@@ -60,21 +65,21 @@ public class LegendsOfValorBoard extends Board {
     public boolean isValidMove(String direction) {
         if (super.isValidMove(direction)){
             //test collision with monsters and players
-            for (int i = 0; i < monsterXs.length; i++){
+            for (int i = 0; i < monsterXs.size(); i++){
                 switch(direction){
-                    case "w" -> {if (playerX - 1 == monsterXs[i] && playerY == monsterYs[i]) {
+                    case "w" -> {if (playerX - 1 == monsterXs.get(i) && playerY == monsterYs.get(i)) {
                         return false;
                         }
                     }
-                    case "a" -> {if (playerX == monsterXs[i] && playerY - 1 == monsterYs[i]) {
+                    case "a" -> {if (playerX == monsterXs.get(i) && playerY - 1 == monsterYs.get(i)) {
                         return false;
                         }
                     }
-                    case "s" -> {if (playerX + 1 == monsterXs[i] && playerY == monsterYs[i]) {
+                    case "s" -> {if (playerX + 1 == monsterXs.get(i) && playerY == monsterYs.get(i)) {
                         return false;
                         }
                     }
-                    case "d" -> {if (playerX == monsterXs[i] && playerY + 1 == monsterYs[i]) {
+                    case "d" -> {if (playerX == monsterXs.get(i) && playerY + 1 == monsterYs.get(i)) {
                         return false;
                         }
                     }

@@ -18,6 +18,8 @@ public class LoVGame extends Game {
             //heroes take turns
             for (int i = 0; i < heroes.length; i++) {
                 Hero h = heroes[i];
+
+                //wait for valid input
                 boolean valid = false;
                 while (!valid) {
                     gameBoard.printBoard();
@@ -57,6 +59,7 @@ public class LoVGame extends Game {
                     }
                     if (!valid) System.out.println("Invalid move, please try again.");
                 }
+                //execute action
                 switch (userInput) {
                     case "w","a","s","d" -> {
                         gameBoard.playMoveDirection(userInput);
@@ -97,7 +100,7 @@ public class LoVGame extends Game {
         }
         if (newVar.equals("Y")){
             //GameStartMandH.startGame();
-            //Start game here
+            //TODO: include game starting
         }
         else{
             return;
