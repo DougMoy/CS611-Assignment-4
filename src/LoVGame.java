@@ -41,11 +41,22 @@ public class LoVGame extends Game {
                                 System.out.println("");
                             }
                             System.out.println(Colors.ANSI_RESET);
-                            System.out.println("Enter Q/q to go back to the main menu");
+                            System.out.println("Enter Q/q to go back to the main menu or P/p to swap equipped items");
                             String quitVar = Input.getLetter();
-                            while(!quitVar.equals("Q") && !quitVar.equals("q")){
-                                System.out.println("Invalid input, Enter Q/q to go back to the main menu");
+                            while(!quitVar.equals("Q") && !quitVar.equals("q") && !quitVar.equals("P") && !quitVar.equals("p")){
+                                System.out.println("Invalid input, Enter Q/q to go back to the main menu or P/p to swap equipped items");
                                 quitVar = Input.getLetter();
+                            }
+                            if(quitVar.equals("P") || quitVar.equals("p")){
+                                System.out.println("Which item would you like to equip?");
+                                h.printArmorAndWeapons(Colors.heroColors[i]);
+                                int userIndex = Input.getInt();
+                                while(h.isIndexArmorOrWeapon(userIndex) == false){
+                                    System.out.println("Please select a valid index that is armor or a weapon");
+                                    userIndex = Input.getInt();
+                                }
+                                h.getItem(userIndex).useItem(h);
+
                             }
                             continue;
                         }
