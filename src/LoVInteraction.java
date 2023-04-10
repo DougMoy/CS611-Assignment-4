@@ -1,18 +1,28 @@
 import java.util.ArrayList;
 import java.util.List;
-
+/*
+ * LoVInteraction.java
+ * by Douglas Moy, Mark Yang
+ * CS611 Assignment 4
+ *
+ * A LoVInteraction is a subclass extending Interaction
+ * The LoVInteraction class is responsible for executing combat when then a player chooses to attack or cast a spell.
+ */
 public class LoVInteraction extends Interaction{
     public LoVInteraction(){
         super(null);
     }
 
     public static boolean hasMonsterNearby(LegendsOfValorBoard board,
-                                           Hero[] heroes, List<Monster> monsters, int heroIndex){
-        return monstersNearby(board, heroes, monsters, heroIndex).size() > 0;
+                                           Hero[] heroes, List<Monster> monsters, int heroIndex, int range){
+        return monstersNearby(board, heroes, monsters, heroIndex, range).size() > 0;
     }
 
     private static List<Integer> monstersNearby(LegendsOfValorBoard board, Hero[] heroes,
-                                        List<Monster> monsters, int heroIndex) {
+                                        List<Monster> monsters, int heroIndex, int range) {
+        assert range >= 0;
+        if (range == 0) return new ArrayList<>();
+
         Hero hero = heroes[heroIndex];
         int x = board.playerXs[heroIndex];
         int y = board.playerYs[heroIndex];
@@ -22,7 +32,7 @@ public class LoVInteraction extends Interaction{
         for (int i = 0; i < monsters.size(); i++){
             int tx = board.monsterXs.get(i);
             int ty = board.monsterYs.get(i);
-            if (x - 1 <= tx && tx <= x+1 && y - 1 <= ty && ty <= y+1) {
+            if (x - range <= tx && tx <= x + range && y - range <= ty && ty <= y + range) {
                 out.add(i);
             }
         }
@@ -34,7 +44,7 @@ public class LoVInteraction extends Interaction{
         Hero hero = heroes[heroIndex];
         int x = board.playerXs[heroIndex];
         int y = board.playerYs[heroIndex];
-        List<Integer> nearby = monstersNearby(board, heroes, monsters, heroIndex);
+        List<Integer> nearby = monstersNearby(board, heroes, monsters, heroIndex, 1);
         assert nearby.size() > 0;
 
         System.out.println("Select a target:");
@@ -69,7 +79,7 @@ public class LoVInteraction extends Interaction{
         Spell spell = spells.get(Input.pickInt(0, spells.size() - 1));
 
 
-        List<Integer> nearby = monstersNearby(board, heroes, monsters, heroIndex);
+        List<Integer> nearby = monstersNearby(board, heroes, monsters, heroIndex, 2);
         assert nearby.size() > 0;
 
         System.out.println("Select a target:");
