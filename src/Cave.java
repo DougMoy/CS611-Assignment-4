@@ -14,9 +14,7 @@ public class Cave extends Tile{
     }
 
     @Override
-    public void enhanceHeroes(Hero [] heroes) {
-        for (int i = 0; i < heroes.length; i++){
-            heroes[i].updateAgility(10);
-        }
+    public void enhanceHero(Hero indivHero){
+        indivHero.increaseAgility(10);
     }
 }

@@ -55,7 +55,7 @@ public abstract class Tile {
 
         public void printContents(){}
 
-        public void enhanceHeroes(Hero[] heroes){
+        public void enhanceHero(Hero indivHero){
 
         }
         public ArrayList<Item> getContents()

@@ -15,9 +15,7 @@ public class Bush extends Tile{
     }
 
     @Override
-    public void enhanceHeroes(Hero[] heroes) {
-        for (int i = 0; i < heroes.length; i++){
-            heroes[i].updateDex(10);
-        }
+    public void enhanceHero(Hero indivHero){
+        indivHero.increaseDexterity(10);
     }
 }
