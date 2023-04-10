@@ -36,6 +36,8 @@ public class Input {
     //more specific userInput letter that is used for main menu controls
     public static String userInputLetter(){
         System.out.println("Controls:");
+        System.out.println("F/f: attack");
+        System.out.println("G/g: cast a spell");
         System.out.println("W/w: move up");
         System.out.println("A/a: move right");
         System.out.println("S/s: move down");
@@ -51,7 +53,7 @@ public class Input {
         boolean valid = false;
         while (!valid){
             switch (letter){
-                case "w", "a", "s", "d", "i", "r", "t", "m", "q" -> {
+                case "w", "a", "s", "d", "i", "r", "t", "m", "q", "f", "g" -> {
                     valid = true;
                 }
                 default -> {

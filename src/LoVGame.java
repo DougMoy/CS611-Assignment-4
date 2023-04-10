@@ -28,9 +28,26 @@ public class LoVGame extends Game {
                             if (gameBoard.isValidMove(userInput)) valid = true;
                         }
                         case "m" -> {
-                            if (gameBoard.returnPlayerTile() instanceof HeroNexus) valid = true;
+                            //TODO: only allow current hero
+                            this.enterMarket();
+                            continue;
                         }
                         case "i" -> {
+                            //TODO: allow equipment swapping
+                            for (int id = 0; id < heroes.length; id++){
+                                heroes[id].printHero(Colors.heroColors[id]);
+                                System.out.println("");
+                            }
+                            System.out.println(Colors.ANSI_RESET);
+                            System.out.println("Enter Q/q to go back to the main menu");
+                            String quitVar = Input.getLetter();
+                            while(!quitVar.equals("Q") && !quitVar.equals("q")){
+                                System.out.println("Invalid input, Enter Q/q to go back to the main menu");
+                                quitVar = Input.getLetter();
+                            }
+                            continue;
+                        }
+                        case "f", "g", "t", "r" -> {
                             valid = true;
                         }
                         case "q" -> {
@@ -42,18 +59,26 @@ public class LoVGame extends Game {
                 }
                 switch (userInput) {
                     case "w","a","s","d" -> {
-                        if (gameBoard.isValidMove(userInput)) valid = true;
+                        gameBoard.playMoveDirection(userInput);
                     }
-                    case "m" -> {if (gameBoard.returnPlayerTile() instanceof HeroNexus) valid = true;
+                    case "f" -> {
+                        //TODO: implement attacking
                     }
-                    case "i" -> {valid = true;}
-                    case "q" -> {promptAgain(); return;}
+                    case "g" -> {
+                        //TODO: implement spell casting
+                    }
+                    case "r" -> {
+                        //TODO: implement recall
+                    }
+                    case "t" -> {
+                        //TODO: implement teleport
+                    }
                 }
             }
 
             //monsters take turns
             for (int i = 0; i < monsters.length; i++){
-
+                //TODO: implement monster turns
             }
 
             break;
