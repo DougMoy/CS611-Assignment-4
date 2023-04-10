@@ -30,8 +30,8 @@ public class LoVGame extends Game {
                             if (gameBoard.isValidMove(userInput)) valid = true;
                         }
                         case "m" -> {
-                            //TODO: only allow current hero
-                            this.enterMarket();
+                            //TODO: only allow current hero should be done
+                            this.enterMarketIndividual(h);
                             continue;
                         }
                         case "i" -> {
