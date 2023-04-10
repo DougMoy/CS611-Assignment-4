@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /*
  * LoVGame.java
  * by Douglas Moy, Mark Yang
@@ -7,7 +9,7 @@
  * Entry point of the Legends of Valor game.
  */
 public class LoVGame extends Game {
-    protected static Monster[] monsters;
+    protected static ArrayList<> monsters;
     public LoVGame(Hero[] heroes, LegendsOfValorBoard gameBoard){
         super(heroes, gameBoard);
     }
@@ -91,7 +93,7 @@ public class LoVGame extends Game {
             }
 
             //monsters take turns
-            for (int i = 0; i < monsters.length; i++){
+            for (int i = 0; i < monsters.size(); i++){
                 //TODO: implement monster turns
             }
 
