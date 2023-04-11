@@ -10,8 +10,8 @@ public class LegendsOfValorBoard extends Board {
         this.heroIndex = 0;
         playerXs = new int[]{1, 4, 7};
         playerYs = new int[]{rows-1, rows-1, rows-1};
-        playerX = 1;
-        playerY = rows-1;
+        playerX = rows-1;
+        playerY = 1;
         monsterXs = new ArrayList();
         monsterYs = new ArrayList();
         int count = 0;
@@ -139,14 +139,14 @@ public class LegendsOfValorBoard extends Board {
     }
 
     public boolean recall(int i) {
-        if (isEmpty(0 + 3*i,7)) {
-            playerX = 0 + 3*i;
-            playerY = 7;
+        if (isEmpty(1 + 3*i,rows-1)) {
+            playerY = 1 + 3*i;
+            playerX = rows-1;
             return true;
         }
-        else if(isEmpty(1 + 3*i,7)){
-            playerX = 1 + 3*i;
-            playerY = 7;
+        else if(isEmpty(0 + 3*i,rows-1)){
+            playerY = 0 + 3*i;
+            playerX = rows-1;
             return true;
         }
         return false;
