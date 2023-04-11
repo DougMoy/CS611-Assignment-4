@@ -49,6 +49,7 @@ public class Monster {
         double randomV = Math.random();
         if(randomV > this.dodgeChance * 0.01){ //attack success
             this.hp = this.hp - ((1-(this.defense/10000))*damage);
+            System.out.println(this.name + " takes " + ((1-(this.defense/10000))*damage) + " damage!");
         }
         else{
             System.out.println(this.name + " Has dodged the attack!");
