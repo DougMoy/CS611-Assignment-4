@@ -10,7 +10,7 @@ public class GameStart{
     public static void startGameMandH(){
         System.out.println("WELCOME TO MONSTERS AND HEROES");
 
-        Hero [] gameHeroes = getAndPrintHeroes();
+        Hero [] gameHeroes = getAndPrintHeroes(4);
         int rows = getRow();
         int cols = getCol();
 
@@ -23,7 +23,7 @@ public class GameStart{
     public static void startGameLOV(){
         System.out.println("WELCOME TO LEGENDS OF VALOR");
         //TODO: only allow 3 heros
-        Hero[] gameHeroes = getAndPrintHeroes();
+        Hero[] gameHeroes = getAndPrintHeroes(3);
         int rows = getRow();
         int cols = 8;
 
@@ -43,8 +43,8 @@ public class GameStart{
         return cols;
     }
 
-    public static Hero[] getAndPrintHeroes(){
-        Hero[] gameHeroes = Input.getHeroes();
+    public static Hero[] getAndPrintHeroes(int max){
+        Hero[] gameHeroes = Input.getHeroes(max);
         System.out.println("Here are your heroes: ");
         for (int i = 0; i < gameHeroes.length; i++){
             System.out.println(gameHeroes[i].getName());
