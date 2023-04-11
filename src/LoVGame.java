@@ -16,6 +16,7 @@ public class LoVGame extends Game {
     public LoVGame(Hero[] heroes, LegendsOfValorBoard gameBoard){
         super(heroes, gameBoard);
         turn = 0;
+        monsters = new ArrayList<>();
     }
     //function that runs the game
     public void runGame(){
@@ -35,7 +36,7 @@ public class LoVGame extends Game {
                 boolean valid = false;
                 while (!valid) {
                     gameBoard.printBoard();
-                    System.out.println("Hero" + i + "'s turn: " + h.getName());
+                    System.out.println("Hero " + (i + 1) + "'s turn: " + h.getName());
                     userInput = Input.userInputLetter().toLowerCase();
                     switch (userInput) {
                         case "w", "a", "s", "d" -> {

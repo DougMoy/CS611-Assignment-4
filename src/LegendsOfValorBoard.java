@@ -8,8 +8,10 @@ public class LegendsOfValorBoard extends Board {
     public LegendsOfValorBoard (int rows, int cols){
         super (rows, cols);
         this.heroIndex = 0;
-        playerXs = new int[3];
-        playerYs = new int[3];
+        playerXs = new int[]{1, 4, 7};
+        playerYs = new int[]{7, 7, 7};
+        playerX = 1;
+        playerY = 7;
         monsterXs = new ArrayList();
         monsterYs = new ArrayList();
         int count = 0;
@@ -154,6 +156,13 @@ public class LegendsOfValorBoard extends Board {
         return false;
     }
 
+    private int heroOn(int row, int col){
+        for (int i = 0; i < playerXs.length; i++){
+            if (playerXs[i] == col && playerYs[i] == row) return i;
+        }
+        return -1;
+    }
+
     @Override
     public void printBoard() {
         //prints the board
@@ -172,12 +181,13 @@ public class LegendsOfValorBoard extends Board {
             System.out.print(i + " |");
 
             for (int j = 0; j < cols; j++) {
-                if (actualBoard[i][j].isThePlayerOn()){
-                    System.out.print(" ");
-                    System.out.print(Colors.ANSI_CYAN);
-                    System.out.print("@");
+                if (heroOn(i,j) != -1){
+                    char c = Integer.toString(heroOn(i,j) + 1).charAt(0);
+                    System.out.print(c);
+                    System.out.print(Colors.ANSI_BG_BLACK);
+                    System.out.print(actualBoard[i][j].getMarker());
                     System.out.print(Colors.ANSI_RESET);
-                    System.out.print(" |");
+                    System.out.print(c + "|");
                 }
                 else if(actualBoard[i][j].getMarker().equals("M")){
                     System.out.print(" ");
