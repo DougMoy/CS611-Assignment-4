@@ -92,7 +92,7 @@ public abstract class Hero {
         this.fainted = true;
     }
     public void heroRes(){
-        this.fainted = true;
+        this.fainted = false;
     }
 
     public int getLevel(){return this.level;}

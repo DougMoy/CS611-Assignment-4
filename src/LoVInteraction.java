@@ -117,4 +117,27 @@ public class LoVInteraction extends Interaction{
         m.printMonster();
 
     }
+
+    public static void spawnMonsters(LegendsOfValorBoard gameBoard, Hero[] heroes, List<Monster> monsters, int level) {
+        for (int lane = 0; lane < 3; lane++){
+            if (gameBoard.isEmpty(0,0 + 3*lane)) {
+                Monster x = MonsterGenerator.generateIndividualMonster(level);
+                monsters.add(x);
+                gameBoard.monsterXs.add(0 + 3*lane);
+                gameBoard.monsterYs.add(0);
+            }
+            else if (gameBoard.isEmpty(0,1 + 3*lane)) {
+                Monster x = MonsterGenerator.generateIndividualMonster(level);
+                monsters.add(x);
+                gameBoard.monsterXs.add(1 + 3*lane);
+                gameBoard.monsterYs.add(0);
+            }
+        }
+    }
+
+    public static void takeMonsterTurn(LegendsOfValorBoard gameBoard, Hero[] heroes,
+                                       List<Monster> monsters, int monster) {
+        //TODO
+    }
+
 }

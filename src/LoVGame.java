@@ -10,15 +10,22 @@ import java.util.List;
  * Entry point of the Legends of Valor game.
  */
 public class LoVGame extends Game {
+    //indices of heroes corresponds with lane.
     protected static List<Monster> monsters;
+    protected int turn;
     public LoVGame(Hero[] heroes, LegendsOfValorBoard gameBoard){
         super(heroes, gameBoard);
+        turn = 0;
     }
     //function that runs the game
     public void runGame(){
         String userInput = "D";
         while(userInput != "q"){
-            //TODO: every three turns spawn new monster
+            //every three turns spawn new monster
+            if (turn % 3 == 0) {
+                LoVInteraction.spawnMonsters((LegendsOfValorBoard) gameBoard, heroes, monsters, 1);
+            }
+
             //heroes take turns
             for (int i = 0; i < heroes.length; i++) {
                 Hero h = heroes[i];
@@ -130,7 +137,11 @@ public class LoVGame extends Game {
                         LoVInteraction.heroCastsSpell((LegendsOfValorBoard) gameBoard, heroes, monsters, i);
                     }
                     case "r" -> {
-                        //TODO: implement recall
+                        if (((LegendsOfValorBoard)gameBoard).recall(i)){}
+                        else {
+                            System.out.println("You attempt to violate the Pauli exclusion principle.");
+                            System.out.println("You waste your turn (Nexus occupied).");
+                        }
                     }
                     case "t" -> {
                         //TODO: implement teleport
@@ -144,6 +155,7 @@ public class LoVGame extends Game {
 
             //monsters take turns
             for (int i = 0; i < monsters.size(); i++){
+
                 //TODO: implement monster turns
                 //TODO: heroes that die go back to nexus
             }
@@ -152,6 +164,7 @@ public class LoVGame extends Game {
                 System.out.println("YOU HAVE LOST!!!");
                 break;
             }
+            turn++;
         }
 
         promptAgain();

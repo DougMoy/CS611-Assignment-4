@@ -128,4 +128,29 @@ public class LegendsOfValorBoard extends Board {
         }
         return false;
     }
+
+    //has neither hero nor monster
+    public boolean isEmpty(int row, int col){
+        for (int i = 0; i < playerXs.length; i++){
+            if (playerXs[i] == row && playerYs[i] == col) return false;
+        }
+        for (int i = 0; i < monsterXs.size(); i++){
+            if (monsterXs.get(i) == row && monsterYs.get(i) == col) return false;
+        }
+        return true;
+    }
+
+    public boolean recall(int i) {
+        if (isEmpty(0 + 3*i,7)) {
+            playerX = 0 + 3*i;
+            playerY = 7;
+            return true;
+        }
+        else if(isEmpty(1 + 3*i,7)){
+            playerX = 1 + 3*i;
+            playerY = 7;
+            return true;
+        }
+        return false;
+    }
 }

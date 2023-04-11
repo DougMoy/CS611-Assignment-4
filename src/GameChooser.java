@@ -5,7 +5,7 @@ public class GameChooser {
         System.out.println("2. Legends of Valor");
         int getInt = Input.getInt();
 
-        while(getInt != 1 || getInt !=2){
+        while(getInt != 1 && getInt !=2){
             System.out.println("Please enter a valid game selection");
             getInt = Input.getInt();
 

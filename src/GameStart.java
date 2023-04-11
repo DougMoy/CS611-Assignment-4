@@ -22,6 +22,7 @@ public class GameStart{
     }
     public static void startGameLOV(){
         System.out.println("WELCOME TO LEGENDS OF VALOR");
+        //TODO: only allow 3 heros
         Hero[] gameHeroes = getAndPrintHeroes();
         int rows = getRow();
         int cols = 8;
