@@ -95,7 +95,7 @@ public class LoVInteraction extends Interaction{
 
     private static List<Spell> getSpells(Hero h){
         List<Spell> out = new ArrayList<>();
-        for (Item item : h.items) {
+        for (Item item : h.items.getItems()) {
             if (item instanceof Spell) {
                 Spell s = (Spell) item;
                 if (h.getMana() >= s.manaCost) {

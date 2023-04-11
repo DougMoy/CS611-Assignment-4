@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * Sorcerers are favored on dexterity and agility.
  */
 public class Sorcerer extends Hero {
-    public Sorcerer(String name, int level, int xp, int hp, int mana, int strength, int dexterity, int agility, int gold, ArrayList<Item> items){
+    public Sorcerer(String name, int level, int xp, int hp, int mana, int strength, int dexterity, int agility, int gold, Inventory items){
         super(name, level, xp,hp,mana,strength,dexterity,agility, gold, items);
     }
 

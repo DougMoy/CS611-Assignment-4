@@ -56,7 +56,7 @@ public class MarketInteraction extends Interaction {
         int indexSell = Input.getInt();
 
 
-        while (indexSell < -1 || indexSell >= currentHero.items.size()){
+        while (indexSell < -1 || indexSell >= currentHero.items.getSize()){
             System.out.println("Please enter a valid input");
             indexSell = Input.getInt();
         };

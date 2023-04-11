@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * Warriors are favored on strength and agility.
  */
 public class Warrior extends Hero {
-    public Warrior(String name, int level, int xp, int hp, int mana, int strength, int dexterity, int agility, int gold, ArrayList<Item> items){
+    public Warrior(String name, int level, int xp, int hp, int mana, int strength, int dexterity, int agility, int gold, Inventory items){
         super(name, level, xp,hp,mana,strength,dexterity,agility, gold, items);
     }
     public void levelUp(){

@@ -21,7 +21,7 @@ public abstract class Hero {
     protected int dexterity;
     protected int agility;
     protected int gold;
-    protected ArrayList<Item> items;
+    protected Inventory items;
 
     protected int numHands;
     protected Armor equippedArmor;
@@ -36,7 +36,7 @@ public abstract class Hero {
 
     protected int tempStrength;
 
-    public Hero(String name, int level, int xp, int hp, int mana, int strength, int dexterity, int agility, int gold, ArrayList<Item> items){
+    public Hero(String name, int level, int xp, int hp, int mana, int strength, int dexterity, int agility, int gold, Inventory items){
         this.name = name;
         this.level = level;
         this.xp = xp;
@@ -123,14 +123,14 @@ public abstract class Hero {
     //prints out string representation of a hero's items
 
     public void printItems(String heroColor){
-        for (int i = 0; i < items.size(); i++){
+        for (int i = 0; i < items.getSize(); i++){
 
             items.get(i).labeledItem(i, heroColor);
         }
         System.out.println(Colors.ANSI_RESET);
     }
     public void printArmorAndWeapons(String heroColor){
-        for (int i = 0; i < items.size(); i++){
+        for (int i = 0; i < items.getSize(); i++){
             if (items.get(i) instanceof Weapon || items.get(i) instanceof Armor) {
                 items.get(i).labeledItem(i, heroColor);
             }
@@ -139,7 +139,7 @@ public abstract class Hero {
     }
 
     public void printPotions(String heroColor){
-        for (int i = 0; i < items.size(); i++){
+        for (int i = 0; i < items.getSize(); i++){
             if (items.get(i) instanceof Potion) {
                 items.get(i).labeledItem(i, heroColor);
             }

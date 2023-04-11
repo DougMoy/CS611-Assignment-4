@@ -75,7 +75,7 @@ public class FightInteraction extends Interaction{
                 currentHeroes[i].printItems(Colors.heroColors[i]);
                 System.out.println("Which item would you like to use?");
                 int userInput = Input.getInt();
-                while(userInput < 0 || userInput >= currentHeroes[i].items.size()){
+                while(userInput < 0 || userInput >= currentHeroes[i].items.getSize()){
                     System.out.println("Please enter a valid input");
                     userInput = Input.getInt();
                 }

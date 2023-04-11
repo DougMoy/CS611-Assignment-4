@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * Paladins are favored on strength and dexterity.
  */
 public class Paladin extends Hero {
-    public Paladin(String name, int level, int xp, int hp, int mana, int strength, int dexterity, int agility, int gold, ArrayList<Item> items){
+    public Paladin(String name, int level, int xp, int hp, int mana, int strength, int dexterity, int agility, int gold, Inventory items){
         super(name, level, xp,hp,mana,strength,dexterity,agility, gold, items);
     }
     public void levelUp(){

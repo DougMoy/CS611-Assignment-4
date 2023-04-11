@@ -149,7 +149,7 @@ public class Input {
            System.out.println("Please enter a valid input ");
            index = getInt();
        }
-       ArrayList<Item> emptyInv = new ArrayList<Item>();
+       Inventory emptyInv = new Inventory();
        if (index < count1) {
            heroArray = (ReadInFile.readInText("rsc/paladins.txt"))[index + 1];
 

@@ -79,7 +79,7 @@ public abstract class Game {
                 gameBoard.returnPlayerTile().printContents();
                 currentHeroLeave = currentMarket.buyItem();
             }
-            else if(enteringHero.items.size() == 0){
+            else if(enteringHero.items.getSize() == 0){
                 System.out.println("You have no items to sell!");
 
             }
