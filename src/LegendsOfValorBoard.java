@@ -9,9 +9,9 @@ public class LegendsOfValorBoard extends Board {
         super (rows, cols);
         this.heroIndex = 0;
         playerXs = new int[]{1, 4, 7};
-        playerYs = new int[]{7, 7, 7};
+        playerYs = new int[]{rows-1, rows-1, rows-1};
         playerX = 1;
-        playerY = 7;
+        playerY = rows-1;
         monsterXs = new ArrayList();
         monsterYs = new ArrayList();
         int count = 0;
@@ -65,11 +65,9 @@ public class LegendsOfValorBoard extends Board {
 
     public boolean checkHeroWin(){
         //check for win function for heroes, allows for expandability because not hard coding where monster nexi are
-        for (int i = 0; i < rows; i++){
-            for (int j = 0; j < cols; j++){
-                if(this.actualBoard[i][j].isPlayerOn = true && this.actualBoard[i][j] instanceof MonsterNexus){
-                    return true;
-                }
+        for (int i = 0; i < playerXs.length; i++){
+            if(this.actualBoard[playerYs[i]][playerXs[i]] instanceof MonsterNexus){
+                return true;
             }
         }
         return false;
@@ -77,10 +75,8 @@ public class LegendsOfValorBoard extends Board {
 
     public boolean checkMonsterWin(){
         for (int i = 0; i < monsterXs.size(); i++){
-            for (int j = 0; j < monsterYs.size(); i ++){
-                if (this.actualBoard[monsterXs.get(i)][monsterYs.get(j)] instanceof HeroNexus){
-                    return true;
-                }
+            if (this.actualBoard[monsterYs.get(i)][monsterXs.get(i)] instanceof HeroNexus){
+                return true;
             }
         }
         return false;
@@ -163,6 +159,13 @@ public class LegendsOfValorBoard extends Board {
         return -1;
     }
 
+    private int monsterOn(int row, int col){
+        for (int i = 0; i < monsterXs.size(); i++){
+            if (monsterXs.get(i) == col && monsterYs.get(i) == row) return i;
+        }
+        return -1;
+    }
+
     @Override
     public void printBoard() {
         //prints the board
@@ -187,6 +190,13 @@ public class LegendsOfValorBoard extends Board {
                     System.out.print(actualBoard[i][j].getMarker());
                     System.out.print(Colors.ANSI_RESET);
                     System.out.print("*|");
+                }
+                else if (monsterOn(i,j) != -1){
+                    System.out.print("-");
+                    System.out.print(Colors.ANSI_BG_BLACK + Colors.ANSI_WHITE);
+                    System.out.print(actualBoard[i][j].getMarker());
+                    System.out.print(Colors.ANSI_RESET);
+                    System.out.print("-|");
                 }
                 else if(actualBoard[i][j].getMarker().equals("M")){
                     System.out.print(" ");
