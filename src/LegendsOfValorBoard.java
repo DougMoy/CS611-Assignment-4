@@ -56,11 +56,11 @@ public class LegendsOfValorBoard extends Board {
     //ad hoc method to use parent methods.
     public void setHero(int i) {
         assert i > 0 && i < 3;
-        playerXs[heroIndex] = playerX;
-        playerYs[heroIndex] = playerY;
+        playerXs[heroIndex] = playerY;
+        playerYs[heroIndex] = playerX;
         heroIndex = i;
-        playerX = playerXs[i];
-        playerY = playerYs[i];
+        playerY = playerXs[i];
+        playerX = playerYs[i];
     }
 
     public boolean checkHeroWin(){
@@ -87,19 +87,19 @@ public class LegendsOfValorBoard extends Board {
             //test collision with monsters and players
             for (int i = 0; i < monsterXs.size(); i++){
                 switch(direction){
-                    case "w" -> {if (playerX - 1 == monsterXs.get(i) && playerY == monsterYs.get(i)) {
+                    case "w" -> {if (playerY - 1 == monsterXs.get(i) && playerX == monsterYs.get(i)) {
                         return false;
                         }
                     }
-                    case "a" -> {if (playerX == monsterXs.get(i) && playerY - 1 == monsterYs.get(i)) {
+                    case "a" -> {if (playerY == monsterXs.get(i) && playerX - 1 == monsterYs.get(i)) {
                         return false;
                         }
                     }
-                    case "s" -> {if (playerX + 1 == monsterXs.get(i) && playerY == monsterYs.get(i)) {
+                    case "s" -> {if (playerY + 1 == monsterXs.get(i) && playerX == monsterYs.get(i)) {
                         return false;
                         }
                     }
-                    case "d" -> {if (playerX == monsterXs.get(i) && playerY + 1 == monsterYs.get(i)) {
+                    case "d" -> {if (playerY == monsterXs.get(i) && playerX + 1 == monsterYs.get(i)) {
                         return false;
                         }
                     }
@@ -108,16 +108,16 @@ public class LegendsOfValorBoard extends Board {
             for (int i = 0; i < playerXs.length; i++){
                 if (i == heroIndex) continue;
                 switch(direction){
-                    case "w" -> {if (playerX - 1 == playerXs[i] && playerY == playerYs[i])
+                    case "w" -> {if (playerY - 1 == playerXs[i] && playerX == playerYs[i])
                         return false;
                     }
-                    case "a" -> {if (playerX == playerXs[i] && playerY - 1 == playerYs[i])
+                    case "a" -> {if (playerY == playerXs[i] && playerX - 1 == playerYs[i])
                         return false;
                     }
-                    case "s" -> {if (playerX + 1 == playerXs[i] && playerY == playerYs[i])
+                    case "s" -> {if (playerY + 1 == playerXs[i] && playerX == playerYs[i])
                         return false;
                     }
-                    case "d" -> {if (playerX == playerXs[i] && playerY + 1 == playerYs[i])
+                    case "d" -> {if (playerY == playerXs[i] && playerX + 1 == playerYs[i])
                         return false;
                     }
                 }

@@ -125,7 +125,7 @@ public class LoVGame extends Game {
                 switch (userInput) {
                     case "w","a","s","d" -> {
                         gameBoard.playMoveDirection(userInput);
-                       if (((LegendsOfValorBoard) gameBoard).checkHeroWin()){
+                       if (((LegendsOfValorBoard) gameBoard).checkHeroWin() == true){
                            //Heroes have won;
                            System.out.println("CONGRATS ON WINNING LEGENDS OF VALOR");
                            break;
