@@ -153,4 +153,108 @@ public class LegendsOfValorBoard extends Board {
         }
         return false;
     }
+
+    @Override
+    public void printBoard() {
+        //prints the board
+        System.out.print("  +");
+
+        for (int j = 0; j < cols; j++) {
+
+            System.out.print("---+");
+
+        }
+
+        System.out.println();
+
+        for (int i = 0; i < rows; i++) {
+
+            System.out.print(i + " |");
+
+            for (int j = 0; j < cols; j++) {
+                if (actualBoard[i][j].isThePlayerOn()){
+                    System.out.print(" ");
+                    System.out.print(Colors.ANSI_CYAN);
+                    System.out.print("@");
+                    System.out.print(Colors.ANSI_RESET);
+                    System.out.print(" |");
+                }
+                else if(actualBoard[i][j].getMarker().equals("M")){
+                    System.out.print(" ");
+                    System.out.print(Colors.ANSI_RED);
+                    System.out.print(actualBoard[i][j].getMarker());
+
+                    System.out.print(Colors.ANSI_RESET);
+                    System.out.print(" |");
+                }
+                else if(actualBoard[i][j].getMarker().equals("H")){
+                    System.out.print(" ");
+                    System.out.print(Colors.ANSI_BLUE);
+                    System.out.print(actualBoard[i][j].getMarker());
+
+                    System.out.print(Colors.ANSI_RESET);
+                    System.out.print(" |");
+                }
+                else if (actualBoard[i][j].getMarker().equals("K")){
+                    System.out.print(" ");
+                    System.out.print(Colors.ANSI_GREEN);
+                    System.out.print(actualBoard[i][j].getMarker());
+
+                    System.out.print(Colors.ANSI_RESET);
+                    System.out.print(" |");
+                }
+                else if (actualBoard[i][j].getMarker().equals("B")){
+                    System.out.print(" ");
+                    System.out.print(Colors.ANSI_PURPLE);
+                    System.out.print(actualBoard[i][j].getMarker());
+
+                    System.out.print(Colors.ANSI_RESET);
+                    System.out.print(" |");
+                } else if (actualBoard[i][j].getMarker().equals("C")){
+                    System.out.print(" ");
+                    System.out.print(Colors.ANSI_YELLOW);
+                    System.out.print(actualBoard[i][j].getMarker());
+
+                    System.out.print(Colors.ANSI_RESET);
+                    System.out.print(" |");
+                }
+                else if (actualBoard[i][j].getMarker().equals("E")){
+                    System.out.print(" ");
+                    System.out.print(Colors.ANSI_RED);
+                    System.out.print(actualBoard[i][j].getMarker());
+
+                    System.out.print(Colors.ANSI_RESET);
+                    System.out.print(" |");
+                }
+
+
+                else {
+                    System.out.print(" " + actualBoard[i][j].getMarker() + " |");
+                }
+            }
+
+            System.out.println("");
+
+            System.out.print("  +");
+
+            for (int j = 0; j < cols; j++) {
+
+                System.out.print("---+");
+
+            }
+            System.out.println();
+        }
+        System.out.print("  ");
+        for (int j = 0; j < cols; j++) {
+
+            if (j == 0){
+                System.out.print("  " + j);
+            }
+            else{
+                System.out.print("   " + j);
+            }
+
+        }
+        System.out.println();
+    }
 }
