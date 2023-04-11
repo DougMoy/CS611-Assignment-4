@@ -56,7 +56,7 @@ public class LoVInteraction extends Interaction{
         int t = Input.pickInt(0, nearby.size() - 1);
         Monster target = monsters.get(t);
 
-        heroBasicAttack(hero, target);
+        monsters.set(t,heroBasicAttack(hero, target));
     }
 
     public static void heroCastsSpell(LegendsOfValorBoard board, Hero[] heroes, List<Monster> monsters, int heroIndex){
@@ -88,9 +88,10 @@ public class LoVInteraction extends Interaction{
             System.out.print("[" + i + "] at (" + board.monsterXs.get(monster) + "," + board.monsterYs.get(monster) + "): ");
             monsters.get(monster).printMonster();
         }
-        Monster target = monsters.get(Input.pickInt(0, nearby.size() - 1));
+        int t = Input.pickInt(0, nearby.size() - 1);
+        Monster target = monsters.get(t);
 
-        applySpell(hero, target, spell);
+        monsters.set(t,applySpell(hero, target, spell));
     }
 
     private static List<Spell> getSpells(Hero h){
@@ -106,16 +107,17 @@ public class LoVInteraction extends Interaction{
         return out;
     }
 
-    private static void heroBasicAttack(Hero h, Monster m){
+    private static Monster heroBasicAttack(Hero h, Monster m){
         m.takeDamage(h.calcDamage());
         m.printMonster();
+        return m;
     }
 
-    private static void applySpell(Hero h, Monster m, Spell s){
+    private static Monster applySpell(Hero h, Monster m, Spell s){
         s.spellEffect(m);
         m.takeGuarenteedDamage(s.damageValue + (s.damageValue * (h.dexterity/10000)));
         m.printMonster();
-
+        return m;
     }
 
     public static void spawnMonsters(LegendsOfValorBoard gameBoard, Hero[] heroes, List<Monster> monsters, int level) {

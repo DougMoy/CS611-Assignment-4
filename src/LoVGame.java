@@ -24,7 +24,7 @@ public class LoVGame extends Game {
         while(userInput != "q"){
             //every three turns spawn new monster
             if (turn % 3 == 0) {
-                LoVInteraction.spawnMonsters((LegendsOfValorBoard) gameBoard, heroes, monsters, 1);
+                LoVInteraction.spawnMonsters((LegendsOfValorBoard) gameBoard, heroes, monsters, heroMaxLevel());
             }
 
             //heroes take turns
