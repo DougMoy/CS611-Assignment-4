@@ -129,7 +129,7 @@ public class LoVGame extends Game {
                        if (((LegendsOfValorBoard) gameBoard).checkHeroWin() == true){
                            //Heroes have won;
                            System.out.println("CONGRATS ON WINNING LEGENDS OF VALOR");
-                           break;
+                           promptAgain();
                        }
                     }
                     case "f" -> {
