@@ -170,11 +170,11 @@ public class Input {
 
    }
 
-   public static Hero[] getHeroes(){
-        System.out.println("How many heroes do you want to play on your team? Maximum: 4");
+   public static Hero[] getHeroes(int max){
+        System.out.println("How many heroes do you want to play on your team? Maximum: "+ max);
         int numberHeroes = getInt();
-        while(numberHeroes > 4){
-            System.out.println("Please enter a valid input that is less than 4");
+        while(numberHeroes > max){
+            System.out.println("Please enter a valid input that is less than " + max);
             numberHeroes = getInt();
         }
         Hero[] heroes = new Hero[numberHeroes];
