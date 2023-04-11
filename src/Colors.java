@@ -25,4 +25,5 @@ public class Colors {
     public static final String ANSI_BG_WHITE = "\u001B[47m";
 
     public static String [] heroColors = new String[]{Colors.ANSI_BLUE,Colors.ANSI_RED, Colors.ANSI_GREEN, Colors.ANSI_YELLOW };
+    public static String [] heroBGColors = new String[]{Colors.ANSI_BG_BLUE,Colors.ANSI_BG_RED, Colors.ANSI_BG_GREEN, Colors.ANSI_BG_YELLOW };
 }

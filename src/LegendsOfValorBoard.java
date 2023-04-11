@@ -182,12 +182,11 @@ public class LegendsOfValorBoard extends Board {
 
             for (int j = 0; j < cols; j++) {
                 if (heroOn(i,j) != -1){
-                    char c = Integer.toString(heroOn(i,j) + 1).charAt(0);
-                    System.out.print(c);
-                    System.out.print(Colors.ANSI_BG_BLACK);
+                    System.out.print("*");
+                    System.out.print(Colors.heroBGColors[heroOn(i,j)]);
                     System.out.print(actualBoard[i][j].getMarker());
                     System.out.print(Colors.ANSI_RESET);
-                    System.out.print(c + "|");
+                    System.out.print("*|");
                 }
                 else if(actualBoard[i][j].getMarker().equals("M")){
                     System.out.print(" ");
