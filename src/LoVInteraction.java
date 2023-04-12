@@ -216,6 +216,7 @@ public class LoVInteraction extends Interaction{
         for (int i = 0; i < heroes.length; i++) {
             Hero h = heroes[i];
             if (h.fainted){
+                ((LegendsOfValorBoard)gameBoard).setHero(i);
                 if (gameBoard.recall(i)) {
                     h.heroRes();
                     for (int j = 0; j < 5; j++) {
