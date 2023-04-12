@@ -214,9 +214,9 @@ public class LoVInteraction extends Interaction{
     //recalls, ressurects, and heals any fainted heroes
     public static void ressurect(LegendsOfValorBoard gameBoard, Hero[] heroes, List<Monster> monsters) {
         for (int i = 0; i < heroes.length; i++) {
-            if (gameBoard.recall(i)) {
-                Hero h = heroes[i];
-                if (h.fainted){
+            Hero h = heroes[i];
+            if (h.fainted){
+                if (gameBoard.recall(i)) {
                     h.heroRes();
                     for (int j = 0; j < 5; j++) {
                         h.increaseHpAfterFight();

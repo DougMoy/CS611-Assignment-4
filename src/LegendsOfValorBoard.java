@@ -118,19 +118,19 @@ public class LegendsOfValorBoard extends Board {
         if(userLetter.equals("W")){
             System.out.println("YOOHOO");
             playerY = playerXs[userInput];
-            playerX = (playerYs[userInput] -1);
+            playerX = playerYs[userInput] - 1;
 
         }
         else if(userLetter.equals("A")){
-            playerY = playerXs[userInput]-1;
+            playerY = playerXs[userInput] - 1;
             playerX = playerYs[userInput];
         }
         else if(userLetter.equals("S")){
-            playerY= playerXs[userInput];
-            playerX = playerYs[userInput] +1;
+            playerY = playerXs[userInput];
+            playerX = playerYs[userInput] + 1;
         }
         else if(userLetter.equals("D")){
-            playerY= playerXs[userInput] +1;
+            playerY = playerXs[userInput] + 1;
             playerX = playerYs[userInput] ;
         }
 
