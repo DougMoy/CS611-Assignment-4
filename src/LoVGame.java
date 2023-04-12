@@ -173,8 +173,10 @@ public class LoVGame extends Game {
             }
 
             if (((LegendsOfValorBoard) gameBoard).checkMonsterWin()){
+                gameBoard.printBoard();
                 System.out.println("YOU HAVE LOST!!!");
-                break;
+                promptAgain();
+                return;
             }
             turn++;
         }
