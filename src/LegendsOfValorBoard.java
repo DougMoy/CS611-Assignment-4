@@ -304,8 +304,9 @@ public class LegendsOfValorBoard extends Board {
 
     //has neither hero nor monster
     public boolean isEmpty(int row, int col){
+        if (row < 0 || col < 0 || row >= rows || col >= cols) return false;
         for (int i = 0; i < playerXs.length; i++){
-            if (playerXs[i] == row && playerYs[i] == col) return false;
+            if (playerYs[i] == row && playerXs[i] == col) return false;
         }
         for (int i = 0; i < monsterXs.size(); i++){
             if (monsterXs.get(i) == row && monsterYs.get(i) == col) return false;

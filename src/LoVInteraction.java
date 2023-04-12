@@ -39,6 +39,60 @@ public class LoVInteraction extends Interaction{
 
         return out;
     }
+    private static List<Integer> heroesNearby(LegendsOfValorBoard board, Hero[] heroes,
+                                                List<Monster> monsters, int monsterIndex, int range) {
+        assert range >= 0;
+        if (range == 0) return new ArrayList<>();
+
+        Monster monster = monsters.get(monsterIndex);
+        int x = board.monsterXs.get(monsterIndex);
+        int y = board.monsterYs.get(monsterIndex);
+
+        List<Integer> out = new ArrayList<>();
+
+        for (int i = 0; i < heroes.length; i++){
+            int tx = board.playerXs[i];
+            int ty = board.playerYs[i];
+            if (x - range <= tx && tx <= x + range && y - range <= ty && ty <= y + range) {
+                out.add(i);
+            }
+        }
+
+        return out;
+    }
+
+    public static boolean hasHeroNearby(LegendsOfValorBoard board,
+                                           Hero[] heroes, List<Monster> monsters, int monsterIndex, int range){
+        return heroesNearby(board, heroes, monsters, monsterIndex, range).size() > 0;
+    }
+
+    public static void monsterAttack(List<Monster> monsters, Hero[] heroes, int monster, int hero){
+        Monster m = monsters.get(monster);
+        Hero h = heroes[hero];
+
+        System.out.println(m.name + " has attacked " + h.getName());
+        h.takeDamage(m.damage);
+        if(h.hp <= 0){
+            h.setHeroFainted();
+            System.out.println("Hero " + h.getName() + " has fainted!");
+        }
+        else{
+            h.printHero(Colors.heroColors[hero]);
+        }
+        System.out.println(Colors.ANSI_RESET);
+    }
+
+    public static void updateStats(Hero h, Tile t){
+        if (t instanceof Bush) {
+            h.updateDex(10);
+        }
+        else if (t instanceof Cave) {
+            h.updateAgility(10);
+        }
+        else if (t instanceof Koulou) {
+            h.updateStrength(10);
+        }
+    }
 
     public static void heroAttacks(LegendsOfValorBoard board, Hero[] heroes, List<Monster> monsters, int heroIndex){
         Hero hero = heroes[heroIndex];
@@ -139,7 +193,49 @@ public class LoVInteraction extends Interaction{
 
     public static void takeMonsterTurn(LegendsOfValorBoard gameBoard, Hero[] heroes,
                                        List<Monster> monsters, int monster) {
-        //TODO
+        if (hasHeroNearby(gameBoard, heroes, monsters, monster, 1)) {
+            //attack
+            int target = 0;
+            // randomize here if desired
+            // target = randomChoice....
+            monsterAttack(monsters, heroes, monster, target);
+        }
+        else {
+            //move forward if possible
+            int x = gameBoard.monsterXs.get(monster);
+            int y = gameBoard.monsterYs.get(monster);
+            if(gameBoard.isEmpty(x,y+1)){
+                gameBoard.monsterXs.set(monster, x);
+                gameBoard.monsterYs.set(monster, y + 1);
+            }
+        }
     }
 
+    //recalls, ressurects, and heals any fainted heroes
+    public static void ressurect(LegendsOfValorBoard gameBoard, Hero[] heroes, List<Monster> monsters) {
+        for (int i = 0; i < heroes.length; i++) {
+            if (gameBoard.recall(i)) {
+                Hero h = heroes[i];
+                if (h.fainted){
+                    h.heroRes();
+                    for (int j = 0; j < 5; j++) {
+                        h.increaseHpAfterFight();
+                        h.increaseMpAfterFight();
+                    }
+                }
+            }
+        }
+    }
+
+    public static void removeDeadMonster(LegendsOfValorBoard gameBoard, Hero[] heroes, List<Monster> monsters) {
+        for (int i = 0; i < monsters.size(); i++) {
+            Monster m = monsters.get(i);
+            if (m.getHP() <= 0) {
+                monsters.remove(i);
+                gameBoard.monsterXs.remove(i);
+                gameBoard.monsterYs.remove(i);
+                i--;
+            }
+        }
+    }
 }
