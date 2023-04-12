@@ -170,14 +170,14 @@ public class LegendsOfValorBoard extends Board {
     }
 
     public boolean recall(int i) {
-        if (isEmpty(0 + 3*i,7)) {
-            playerX = 0 + 3*i;
-            playerY = 7;
+        if (isEmpty(1 + 3*i,rows-1)) {
+            playerY = 1 + 3*i;
+            playerX = rows-1;
             return true;
         }
-        else if(isEmpty(1 + 3*i,7)){
-            playerX = 1 + 3*i;
-            playerY = 7;
+        else if(isEmpty(0 + 3*i,rows-1)){
+            playerY = 0 + 3*i;
+            playerX = rows-1;
             return true;
         }
         return false;

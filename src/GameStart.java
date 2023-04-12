@@ -32,19 +32,23 @@ public class GameStart{
         System.out.println("Welcome to Legends of Valor");
         realGame.runGame();
     }
-    public static int getRow(){
+    private static int getRow(){
         System.out.println("How many rows would you like your map to have?");
         int rows = Input.getInt();
         return rows;
     }
-    public static int getCol(){
+    private static int getCol(){
         System.out.println("How many columns would you like your map to have?");
         int cols = Input.getInt();
         return cols;
     }
 
-    public static Hero[] getAndPrintHeroes(int max){
-        Hero[] gameHeroes = Input.getHeroes(max);
+    private static Hero[] getAndPrintHeroes(int max){
+        //Hero[] gameHeroes = Input.getHeroes(max);
+        Hero[] gameHeroes = new Hero[3];
+        for (int i = 0; i < 3; i++){
+            gameHeroes[i] = Input.getHero();
+        }
         System.out.println("Here are your heroes: ");
         for (int i = 0; i < gameHeroes.length; i++){
             System.out.println(gameHeroes[i].getName());
