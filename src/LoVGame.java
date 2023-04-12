@@ -31,6 +31,11 @@ public class LoVGame extends Game {
             for (int i = 0; i < heroes.length; i++) {
                 Hero h = heroes[i];
                 ((LegendsOfValorBoard)gameBoard).setHero(i);
+                //apply temporary tile effects
+                h.resetHero();
+                LoVInteraction.updateStats(h, gameBoard.returnPlayerTile());
+
+                if (h.fainted) continue;
 
                 //wait for valid input
                 boolean valid = false;
@@ -128,15 +133,19 @@ public class LoVGame extends Game {
                         ((LegendsOfValorBoard)gameBoard).setHero(i);
                        if (((LegendsOfValorBoard) gameBoard).checkHeroWin() == true){
                            //Heroes have won;
+                           gameBoard.printBoard();
                            System.out.println("CONGRATS ON WINNING LEGENDS OF VALOR");
                            promptAgain();
+                           return;
                        }
                     }
                     case "f" -> {
                         LoVInteraction.heroAttacks((LegendsOfValorBoard) gameBoard, heroes, monsters, i);
+                        LoVInteraction.removeDeadMonster((LegendsOfValorBoard) gameBoard, heroes, monsters);
                     }
                     case "g" -> {
                         LoVInteraction.heroCastsSpell((LegendsOfValorBoard) gameBoard, heroes, monsters, i);
+                        LoVInteraction.removeDeadMonster((LegendsOfValorBoard) gameBoard, heroes, monsters);
                     }
                     case "r" -> {
                         if (((LegendsOfValorBoard)gameBoard).recall(i)){}
@@ -157,9 +166,10 @@ public class LoVGame extends Game {
 
             //monsters take turns
             for (int i = 0; i < monsters.size(); i++){
-
-                //TODO: implement monster turns
-                //TODO: heroes that die go back to nexus
+                //monster turns
+                LoVInteraction.takeMonsterTurn((LegendsOfValorBoard)gameBoard, heroes, monsters, i);
+                //heroes that die go back to nexus
+                LoVInteraction.ressurect((LegendsOfValorBoard)gameBoard, heroes, monsters);
             }
 
             if (((LegendsOfValorBoard) gameBoard).checkMonsterWin()){
