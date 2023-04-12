@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -100,9 +101,152 @@ public class LegendsOfValorBoard extends Board {
             userInput = Input.getInt();
         }
 
+        ArrayList <String> validMoves = getValidLetters(heroIndex);
+        System.out.println("Click W to teleport above a player, A to teleport left to a player, S to teleport below a player, D to teleport right to a player");
+
+        for(int i = 0; i< validMoves.size(); i++){
+            System.out.println("[" + validMoves.get(i) + "]");
+        }
+        String userLetter = Input.getLetter();
+
+        while(!validMoves.contains(userLetter)){
+            System.out.println("Sorry please enter a valid move");
+            userLetter = Input.getLetter();
+        }
+
+        if(userLetter.equals("W")){
+            playerXs[heroIndex] = playerXs[userInput];
+            playerYs[heroIndex] = playerYs[userInput] -1;
+
+        }
+        else if(userLetter.equals("A")){
+            playerXs[heroIndex] = playerXs[userInput]-1;
+            playerYs[heroIndex] = playerYs[userInput];
+        }
+        else if(userLetter.equals("S")){
+            playerXs[heroIndex] = playerXs[userInput];
+            playerYs[heroIndex] = playerYs[userInput] +1;
+        }
+        else if(userLetter.equals("D")){
+            playerXs[heroIndex] = playerXs[userInput] +1;
+            playerYs[heroIndex] = playerYs[userInput] ;
+        }
+
+
+
 
     }
 
+    public ArrayList<String> getValidLetters(int heroIndex){
+        ArrayList <String> returnArray = new ArrayList<String>();
+        if (testValidMoveW(heroIndex) == true){
+            returnArray.add("W");
+        }
+        if (testValidMoveA(heroIndex) == true){
+            returnArray.add("A");
+        }
+        if (testValidMoveS(heroIndex) == true){
+            returnArray.add("S");
+        }
+        if (testValidMoveA(heroIndex) == true){
+            returnArray.add("D");
+        }
+        return returnArray;
+    }
+
+    public boolean testValidMoveW(int heroIndex){
+
+        if(playerYs[heroIndex] -1 <0){
+            return false;
+        }
+
+        for (int i = 0; i < monsterXs.size(); i++) {
+            if ((playerYs[heroIndex]) - 1 == monsterYs.get(i) && playerXs[heroIndex] == monsterXs.get(i)){
+                return false;
+            }
+        }
+
+        for (int i = 0; i < playerXs.length; i++) {
+            if (i == heroIndex) continue;
+            if (playerYs[heroIndex] - 1 == playerYs[i] && playerXs[heroIndex] == playerXs[i])
+                return false;
+        }
+
+
+
+        return true;
+
+    }
+
+    public boolean testValidMoveA(int heroIndex){
+        if(playerXs[heroIndex] -1 <0){
+            return false;
+        }
+
+        for (int i = 0; i < monsterXs.size(); i++) {
+            if ((playerYs[heroIndex])  == monsterYs.get(i) && playerXs[heroIndex] -1 == monsterXs.get(i)){
+                return false;
+            }
+        }
+
+        for (int i = 0; i < playerXs.length; i++) {
+            if (i == heroIndex) continue;
+            if (playerYs[heroIndex]  == playerYs[i] && playerXs[heroIndex] -1 == playerXs[i])
+                return false;
+        }
+
+
+
+        return true;
+
+    }
+
+    public boolean testValidMoveS(int heroIndex){
+        if(playerYs[heroIndex] +1 > 8){
+            return false;
+        }
+
+        for (int i = 0; i < monsterXs.size(); i++) {
+            if ((playerYs[heroIndex]) + 1  == monsterYs.get(i) && playerXs[heroIndex]  == monsterXs.get(i)){
+                return false;
+            }
+        }
+
+        for (int i = 0; i < playerXs.length; i++) {
+            if (i == heroIndex) continue;
+            if (playerYs[heroIndex] +1  == playerYs[i] && playerXs[heroIndex]  == playerXs[i])
+                return false;
+        }
+
+
+
+        return true;
+
+    }
+
+    public boolean testValidMoveD(int heroIndex){
+
+        if(playerXs[heroIndex] +1 > 8){
+            return false;
+        }
+
+        for (int i = 0; i < monsterXs.size(); i++) {
+            if ((playerYs[heroIndex])   == monsterYs.get(i) && playerXs[heroIndex] +1 == monsterXs.get(i)){
+                return false;
+            }
+        }
+
+        for (int i = 0; i < playerXs.length; i++) {
+            if (i == heroIndex) continue;
+            if (playerYs[heroIndex]   == playerYs[i] && playerXs[heroIndex] +1  == playerXs[i])
+                return false;
+        }
+
+
+
+        return true;
+
+    }
 
     public boolean checkMonsterWin(){
         for (int i = 0; i < monsterXs.size(); i++){

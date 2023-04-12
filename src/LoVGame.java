@@ -146,7 +146,7 @@ public class LoVGame extends Game {
                         }
                     }
                     case "t" -> {
-                        //TODO: implement teleport
+                        ((LegendsOfValorBoard) gameBoard).teleport(i);
                     }
 
                 }
