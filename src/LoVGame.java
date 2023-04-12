@@ -160,6 +160,7 @@ public class LoVGame extends Game {
 
                 }
             }
+
             for (int i = 0; i < heroes.length; i++){
                 heroes[i].increaseHPandMANAafterRound();
             }

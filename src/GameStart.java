@@ -33,13 +33,31 @@ public class GameStart{
         realGame.runGame();
     }
     private static int getRow(){
-        System.out.println("How many rows would you like your map to have?");
-        int rows = Input.getInt();
+        int rows = -1;
+        while (true) {
+            System.out.println("How many rows would you like your map to have?");
+            rows = Input.getInt();
+            if (rows < 3) {
+                System.out.println("Enter at least 3 rows.");
+            }
+            else {
+                break;
+            }
+        }
         return rows;
     }
     private static int getCol(){
-        System.out.println("How many columns would you like your map to have?");
-        int cols = Input.getInt();
+        int cols = -1;
+        while (true) {
+            System.out.println("How many columns would you like your map to have?");
+            cols = Input.getInt();
+            if (cols < 3) {
+                System.out.println("Enter at least 3 columns.");
+            }
+            else {
+                break;
+            }
+        }
         return cols;
     }
 
