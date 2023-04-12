@@ -10,8 +10,8 @@ public class LegendsOfValorBoard extends Board {
         this.heroIndex = 0;
         playerXs = new int[]{1, 4, 7};
         playerYs = new int[]{rows-1, rows-1, rows-1};
-        playerX = 1;
-        playerY = rows-1;
+        playerX = rows-1;
+        playerY = 1;
         monsterXs = new ArrayList();
         monsterYs = new ArrayList();
         int count = 0;
@@ -72,6 +72,37 @@ public class LegendsOfValorBoard extends Board {
         }
         return false;
     }
+
+
+    public void teleport(int heroIndex){
+        int validInput1;
+        int validInput2;
+        System.out.println("Which hero would you like to TP to?");
+        if (heroIndex == 1){
+            validInput1 = 0;
+            validInput2 = 2;
+
+        }
+        else if (heroIndex == 2){
+            validInput1 = 0;
+            validInput2 = 1;
+        }
+        else{
+            validInput1 = 1;
+            validInput2 = 2;
+
+        }
+        System.out.println("[" + validInput1 + "]");
+        System.out.println("[" + validInput2 + "]");
+        int userInput = Input.getInt();
+        if(userInput != validInput1 && userInput != validInput2){
+            System.out.println("Please try again");
+            userInput = Input.getInt();
+        }
+
+
+    }
+
 
     public boolean checkMonsterWin(){
         for (int i = 0; i < monsterXs.size(); i++){
@@ -151,6 +182,8 @@ public class LegendsOfValorBoard extends Board {
         }
         return false;
     }
+
+
 
     private int heroOn(int row, int col){
         for (int i = 0; i < playerXs.length; i++){
