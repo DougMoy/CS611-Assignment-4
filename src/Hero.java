@@ -64,16 +64,16 @@ public abstract class Hero {
     }
 
     public void updateDex(int tempIncrease){
-        this.tempDex = tempIncrease;
-        this.dexterity = this.dexterity + tempDex;
+        this.tempDex += tempIncrease;
+        this.dexterity = this.dexterity + tempIncrease;
     }
     public void updateAgility(int tempIncrease){
-        this.tempAgility = tempIncrease;
-        this.agility = this.agility + tempAgility;
+        this.tempAgility += tempIncrease;
+        this.agility = this.agility + tempIncrease;
     }
     public void updateStrength(int tempIncrease){
-        this.tempStrength = tempIncrease;
-        this.strength = this.strength + tempStrength;
+        this.tempStrength += tempIncrease;
+        this.strength = this.strength + tempIncrease;
     }
 
 
