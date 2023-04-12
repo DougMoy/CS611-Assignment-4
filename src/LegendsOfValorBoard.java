@@ -101,7 +101,7 @@ public class LegendsOfValorBoard extends Board {
             userInput = Input.getInt();
         }
 
-        ArrayList <String> validMoves = getValidLetters(heroIndex);
+        ArrayList <String> validMoves = getValidLetters(userInput);
         System.out.println("Click W to teleport above a player, A to teleport left to a player, S to teleport below a player, D to teleport right to a player");
 
         for(int i = 0; i< validMoves.size(); i++){
@@ -115,21 +115,22 @@ public class LegendsOfValorBoard extends Board {
         }
 
         if(userLetter.equals("W")){
-            playerXs[heroIndex] = playerXs[userInput];
-            playerYs[heroIndex] = playerYs[userInput] -1;
+            System.out.println("YOOHOO");
+            playerY = playerXs[userInput];
+            playerX = (playerYs[userInput] -1);
 
         }
         else if(userLetter.equals("A")){
-            playerXs[heroIndex] = playerXs[userInput]-1;
-            playerYs[heroIndex] = playerYs[userInput];
+            playerY = playerXs[userInput]-1;
+            playerX = playerYs[userInput];
         }
         else if(userLetter.equals("S")){
-            playerXs[heroIndex] = playerXs[userInput];
-            playerYs[heroIndex] = playerYs[userInput] +1;
+            playerY= playerXs[userInput];
+            playerX = playerYs[userInput] +1;
         }
         else if(userLetter.equals("D")){
-            playerXs[heroIndex] = playerXs[userInput] +1;
-            playerYs[heroIndex] = playerYs[userInput] ;
+            playerY= playerXs[userInput] +1;
+            playerX = playerYs[userInput] ;
         }
 
 
@@ -148,7 +149,7 @@ public class LegendsOfValorBoard extends Board {
         if (testValidMoveS(heroIndex) == true){
             returnArray.add("S");
         }
-        if (testValidMoveA(heroIndex) == true){
+        if (testValidMoveD(heroIndex) == true){
             returnArray.add("D");
         }
         return returnArray;
@@ -170,6 +171,10 @@ public class LegendsOfValorBoard extends Board {
             if (i == heroIndex) continue;
             if (playerYs[heroIndex] - 1 == playerYs[i] && playerXs[heroIndex] == playerXs[i])
                 return false;
+        }
+
+        if(actualBoard[playerYs[heroIndex]-1][playerXs[heroIndex]].isWalkable == false ){
+            return false;
         }
 
 
@@ -195,6 +200,9 @@ public class LegendsOfValorBoard extends Board {
                 return false;
         }
 
+        if(actualBoard[playerYs[heroIndex]][playerXs[heroIndex]-1].isWalkable == false ){
+            return false;
+        }
 
 
         return true;
@@ -202,7 +210,7 @@ public class LegendsOfValorBoard extends Board {
     }
 
     public boolean testValidMoveS(int heroIndex){
-        if(playerYs[heroIndex] +1 > 8){
+        if(playerYs[heroIndex] +1 >= rows){
             return false;
         }
 
@@ -218,6 +226,9 @@ public class LegendsOfValorBoard extends Board {
                 return false;
         }
 
+        if(actualBoard[playerYs[heroIndex]+1][playerXs[heroIndex]].isWalkable == false ){
+            return false;
+        }
 
 
         return true;
@@ -226,7 +237,7 @@ public class LegendsOfValorBoard extends Board {
 
     public boolean testValidMoveD(int heroIndex){
 
-        if(playerXs[heroIndex] +1 > 8){
+        if(playerXs[heroIndex] +1 >= rows){
             return false;
         }
 
@@ -242,6 +253,9 @@ public class LegendsOfValorBoard extends Board {
                 return false;
         }
 
+        if(actualBoard[playerYs[heroIndex]][playerXs[heroIndex]+1].isWalkable == false ){
+            return false;
+        }
 
 
         return true;
