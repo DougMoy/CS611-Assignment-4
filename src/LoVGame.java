@@ -44,15 +44,17 @@ public class LoVGame extends Game {
                     System.out.println(Colors.heroColors[i]+ "Hero " + (i + 1) + "'s turn" + Colors.ANSI_RESET + ": " + h.getName());
                     userInput = Input.userInputLetter().toLowerCase();
                     switch (userInput) {
-                        case "w", "a", "s", "d" -> {
+                        case "w": case "a": case "s": case "d": {
                             if (gameBoard.isValidMove(userInput)) valid = true;
+                            break;
                         }
-                        case "m" -> {
+                        case "m" : {
                             //TODO: only allow current hero should be done
                             if (gameBoard.returnPlayerTile() instanceof HeroNexus) this.enterMarketIndividual(h);
                             continue;
+                            break;
                         }
-                        case "i" -> {
+                        case "i" : {
                             //TODO: allow equipment swapping
                             for (int id = 0; id < heroes.length; id++){
                                 heroes[id].printHero(Colors.heroColors[id]);
@@ -81,7 +83,7 @@ public class LoVGame extends Game {
                             }
                             continue;
                         }
-                        case "p" -> {
+                        case "p" : {
                             System.out.println("What potion do you want to consume? enter -1 to leave this menu");
                             h.printPotions(Colors.heroColors[i]);
                             int userIndex = Input.getInt();
@@ -96,12 +98,13 @@ public class LoVGame extends Game {
                                 h.getItem(userIndex).useItem(h);
                                 valid = true;
                             }
-
+                            break;
                         }
-                        case "t", "r" -> {
+                        case "t": case "r": {
                             valid = true;
+                            break;
                         }
-                        case "f" -> {
+                        case "f" : {
                             if (LoVInteraction.hasMonsterNearby((LegendsOfValorBoard) gameBoard,
                                     heroes, monsters, i, 1)){
                                 valid = true;
@@ -109,8 +112,9 @@ public class LoVGame extends Game {
                             else {
                                 System.out.println("No valid targets in range.");
                             }
+                            break;
                         }
-                        case "g" -> {
+                        case "g": {
                             if (LoVInteraction.hasMonsterNearby((LegendsOfValorBoard) gameBoard,
                                     heroes, monsters, i, 2)){
                                 valid = true;
@@ -118,8 +122,9 @@ public class LoVGame extends Game {
                             else {
                                 System.out.println("No valid targets in range.");
                             }
+                            break;
                         }
-                        case "q" -> {
+                        case "q": {
                             promptAgain();
                             return;
                         }
@@ -128,7 +133,7 @@ public class LoVGame extends Game {
                 }
                 //execute action
                 switch (userInput) {
-                    case "w","a","s","d" -> {
+                    case "w": case "a": case "s": case "d": {
                         gameBoard.playMoveDirection(userInput);
                         //((LegendsOfValorBoard)gameBoard).setHero(i);
                        if (((LegendsOfValorBoard) gameBoard).checkHeroWin() == true){
@@ -138,24 +143,29 @@ public class LoVGame extends Game {
                            promptAgain();
                            return;
                        }
+                       break;
                     }
-                    case "f" -> {
+                    case "f": {
                         LoVInteraction.heroAttacks((LegendsOfValorBoard) gameBoard, heroes, monsters, i);
                         LoVInteraction.removeDeadMonster((LegendsOfValorBoard) gameBoard, heroes, monsters);
+                        break;
                     }
-                    case "g" -> {
+                    case "g": {
                         LoVInteraction.heroCastsSpell((LegendsOfValorBoard) gameBoard, heroes, monsters, i);
                         LoVInteraction.removeDeadMonster((LegendsOfValorBoard) gameBoard, heroes, monsters);
+                        break;
                     }
-                    case "r" -> {
+                    case "r": {
                         if (((LegendsOfValorBoard)gameBoard).recall(i)){}
                         else {
                             System.out.println("You attempt to violate the Pauli exclusion principle.");
                             System.out.println("You waste your turn (Nexus occupied).");
                         }
+                        break;
                     }
-                    case "t" -> {
+                    case "t": {
                         ((LegendsOfValorBoard) gameBoard).teleport(i);
+                        break;
                     }
 
                 }

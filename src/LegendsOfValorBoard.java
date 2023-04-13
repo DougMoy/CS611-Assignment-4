@@ -277,39 +277,47 @@ public class LegendsOfValorBoard extends Board {
             //test collision with monsters and players
             for (int i = 0; i < monsterXs.size(); i++){
                 switch(direction){
-                    case "w" -> {if (playerX - 1 == monsterYs.get(i) && playerY == monsterXs.get(i)) {
+                    case "w": {if (playerX - 1 == monsterYs.get(i) && playerY == monsterXs.get(i)) {
                         return false;
                         }
+                        break;
                     }
-                    case "a" -> {if (playerX == monsterYs.get(i) && playerY - 1 == monsterXs.get(i)) {
+                    case "a": {if (playerX == monsterYs.get(i) && playerY - 1 == monsterXs.get(i)) {
                         return false;
                         }
+                        break;
                     }
-                    case "s" -> {if (playerX + 1 == monsterYs.get(i) && playerY == monsterXs.get(i)) {
+                    case "s": {if (playerX + 1 == monsterYs.get(i) && playerY == monsterXs.get(i)) {
                         return false;
                         }
+                        break;
                     }
-                    case "d" -> {if (playerX == monsterYs.get(i) && playerY + 1 == monsterXs.get(i)) {
+                    case "d": {if (playerX == monsterYs.get(i) && playerY + 1 == monsterXs.get(i)) {
                         return false;
                         }
+                        break;
                     }
                 }
             }
             for (int i = 0; i < playerXs.length; i++){
                 if (i == heroIndex) continue;
                 switch(direction){
-                    case "w" -> {if (playerX - 1 == playerYs[i] && playerY == playerXs[i])
+                    case "w": {if (playerX - 1 == playerYs[i] && playerY == playerXs[i])
                         return false;
                     }
-                    case "a" -> {if (playerX == playerYs[i] && playerY - 1 == playerXs[i])
+                    break;
+                    case "a" : {if (playerX == playerYs[i] && playerY - 1 == playerXs[i])
                         return false;
                     }
-                    case "s" -> {if (playerX + 1 == playerYs[i] && playerY == playerXs[i])
+                    break;
+                    case "s" : {if (playerX + 1 == playerYs[i] && playerY == playerXs[i])
                         return false;
                     }
-                    case "d" -> {if (playerX == playerYs[i] && playerY + 1 == playerXs[i])
+                    break;
+                    case "d" : {if (playerX == playerYs[i] && playerY + 1 == playerXs[i])
                         return false;
                     }
+                    break;
                 }
             }
             return true;

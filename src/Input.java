@@ -53,10 +53,12 @@ public class Input {
         boolean valid = false;
         while (!valid){
             switch (letter){
-                case "w", "a", "s", "d", "i", "r", "t", "m", "q", "f", "g" -> {
+                case "w": case "a": case "s": case "d": case "i": case "r": case "t": case "m":
+                    case "q": case "f": case "g": {
                     valid = true;
+                    break;
                 }
-                default -> {
+                default : {
                     System.out.println("Sorry please enter a valid input");
                     letter = getLetter();
                 }
