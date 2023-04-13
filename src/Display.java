@@ -71,7 +71,7 @@ public class Display {
     }
 
     public void titleScreen() {
-        new SpriteDisplayer(this, 0,0,"rsc/sprite/title.txt").draw();
+        new SpriteDisplayer(this, 0,0,"sprite/title.txt").draw();
     }
 
     public void message(String s) {
@@ -79,6 +79,6 @@ public class Display {
     }
 
     public void helpScreen() {
-        new SpriteDisplayer(this, 0,0,"rsc/sprite/help.txt").draw();
+        new SpriteDisplayer(this, 0,0,"sprite/help.txt").draw();
     }
 }

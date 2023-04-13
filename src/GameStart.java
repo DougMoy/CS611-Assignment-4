@@ -22,7 +22,7 @@ public class GameStart{
     }
     public static void startGameLOV(){
         Display d = new Display();
-        SpriteDisplayer title = new SpriteDisplayer(d, 0,0, "rsc/title.txt");
+        SpriteDisplayer title = new SpriteDisplayer(d, 0,0, "title.txt");
         d.add(title);
         d.render();
         d.showScreen();

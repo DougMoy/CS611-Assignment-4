@@ -103,7 +103,11 @@ public class LegendsOfValorBoard extends Board {
         }
 
         ArrayList <String> validMoves = getValidLetters(userInput);
-        System.out.println("Click W to teleport above a player, A to teleport left to a player, S to teleport below a player, D to teleport right to a player");
+        if(validMoves.size() ==0 ){
+            System.out.println("No valid spaces to teleport to");
+            return;
+        }
+        System.out.println("Select A to teleport left to a player, S to teleport below a player, D to teleport right to a player");
 
         for(int i = 0; i< validMoves.size(); i++){
             System.out.println("[" + validMoves.get(i) + "]");
@@ -116,7 +120,7 @@ public class LegendsOfValorBoard extends Board {
         }
 
         if(userLetter.equals("W")){
-            System.out.println("YOOHOO");
+
             playerY = playerXs[userInput];
             playerX = playerYs[userInput] - 1;
 
@@ -141,9 +145,7 @@ public class LegendsOfValorBoard extends Board {
 
     public ArrayList<String> getValidLetters(int heroIndex){
         ArrayList <String> returnArray = new ArrayList<String>();
-        if (testValidMoveW(heroIndex) == true){
-            returnArray.add("W");
-        }
+
         if (testValidMoveA(heroIndex) == true){
             returnArray.add("A");
         }

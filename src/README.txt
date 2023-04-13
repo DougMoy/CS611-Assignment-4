@@ -16,6 +16,7 @@ README.txt                  - You are here
 *.txt                       - Resource files of various information and stats
 
 <A brief description of each file and what it does>
+Legends of Valor Design Evaluation.txt is a deliverable that explains our design implementation
 Armor.java represents the armor item class. It implements the useItem method from the parent item class
 Board.java is an abstract board class that represents boards that can be traversed by users and has multiple different tiles. It has methods that does things that all board games of this type would do. For example, it has methods that move the player on the board, methods that print the board, methods that ensure valid moves, and methods that return the tile the player is currently on. Any Board game of this type where players roam around the world would use these.
 Bush.java extends tile class, represents a Bush. Calls enhanceHero function to appropriately boost the hero.

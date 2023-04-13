@@ -14,7 +14,7 @@ public class MarketTile extends Tile{
     protected String [] itemArray;
     protected String[] colors = new String[]{Colors.ANSI_GREEN,Colors.ANSI_RED,Colors.ANSI_PURPLE,Colors.ANSI_CYAN,Colors.ANSI_YELLOW,Colors.ANSI_BLUE};
 
-    public String[] txtFilesItems = {"rsc/Armory.txt", "rsc/FireSpells.txt", "rsc/Potions.txt","rsc/Weaponry.txt", "rsc/LightningSpells.txt", "rsc/IceSpells.txt" };
+    public String[] txtFilesItems = {"Armory.txt", "FireSpells.txt", "Potions.txt","Weaponry.txt", "LightningSpells.txt", "IceSpells.txt" };
 
     //constructor initalizes random items for each market tile
     public MarketTile(int index){
