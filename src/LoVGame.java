@@ -129,6 +129,7 @@ public class LoVGame extends Game {
                 //execute action
                 switch (userInput) {
                     case "w","a","s","d" -> {
+
                         gameBoard.playMoveDirection(userInput);
                         //((LegendsOfValorBoard)gameBoard).setHero(i);
                        if (((LegendsOfValorBoard) gameBoard).checkHeroWin() == true){

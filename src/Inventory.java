@@ -1,5 +1,12 @@
 import java.util.ArrayList;
-
+/*
+ * Inventory.java
+ * by Douglas Moy, Mark Yang
+ * CS611 Assignment 4
+ *
+ * A class that houses a hero's inventory
+ *
+ */
 public class Inventory {
     protected ArrayList<Item> inventory;
     public Inventory(){
