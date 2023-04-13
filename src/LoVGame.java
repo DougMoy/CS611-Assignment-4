@@ -52,7 +52,6 @@ public class LoVGame extends Game {
                             //TODO: only allow current hero should be done
                             if (gameBoard.returnPlayerTile() instanceof HeroNexus) this.enterMarketIndividual(h);
                             continue;
-                            break;
                         }
                         case "i" : {
                             //TODO: allow equipment swapping
