@@ -18,7 +18,7 @@ Second+ lines: Each line of the sprite
 Takes the character '¬' as an empty character and doesn't draw anything using it.
  */
 public class SpriteDisplayer extends Displayable {
-    private final char EMPTYCHAR = '¬';
+    private final char EMPTYCHAR = '?';
     private List<String> lines;
     public SpriteDisplayer(Display d, int x, int y, String filepath){
         super(d,x,y);
