@@ -10,7 +10,7 @@ public class GameStart{
     public static void startGameMandH(){
         System.out.println("WELCOME TO MONSTERS AND HEROES");
 
-        Hero [] gameHeroes = getAndPrintHeroes(4);
+        Hero [] gameHeroes = getAndPrintHeroes();
         int rows = getRow();
         int cols = getCol();
 
@@ -21,9 +21,16 @@ public class GameStart{
 
     }
     public static void startGameLOV(){
+        Display d = new Display();
+        SpriteDisplayer title = new SpriteDisplayer(d, 0,0, "rsc/title.txt");
+        d.add(title);
+        d.render();
+        d.showScreen();
+        Input.getLetter();
+
         System.out.println("WELCOME TO LEGENDS OF VALOR");
 
-        Hero[] gameHeroes = getAndPrintHeroes(3);
+        Hero[] gameHeroes = getAndPrintHeroes();
         int rows = getRow();
         int cols = 8;
 
@@ -61,7 +68,7 @@ public class GameStart{
         return cols;
     }
 
-    private static Hero[] getAndPrintHeroes(int max){
+    private static Hero[] getAndPrintHeroes(){
         //Hero[] gameHeroes = Input.getHeroes(max);
         Hero[] gameHeroes = new Hero[3];
         for (int i = 0; i < 3; i++){
